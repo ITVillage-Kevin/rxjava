@@ -8,7 +8,6 @@ import io.reactivex.Observable;
  */
 public class RangeExample {
     public static void main(String[] args){
-        int sum;
         Observable<Integer> source = Observable.range(0, 5);
         source.subscribe(num -> Logger.on(num));
     }
