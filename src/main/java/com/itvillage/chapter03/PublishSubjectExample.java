@@ -1,22 +1,19 @@
 package com.itvillage.chapter03;
 
-import io.reactivex.subjects.AsyncSubject;
+import io.reactivex.subjects.PublishSubject;
 
 /**
- * Observable 의 데이터 소스 중 마지막 값만 발행
+ * Observer 가 구독 시점 이 후에 Observable 이 발행한 데이터만 Observer 에게 전달
  */
-public class AsyncSubjectExample {
+public class PublishSubjectExample {
     public static void main(String[] args){
-        AsyncSubject<Integer> subject = AsyncSubject.create();
-        subject.onNext(1000);
+        PublishSubject<Integer> subject = PublishSubject.create();
+
         subject.subscribe(price -> System.out.println("# Observer(Subscriber) 1 : " + price));
-        subject.onNext(2000);
+        subject.onNext(3500);
         subject.subscribe(price -> System.out.println("# Observer(Subscriber) 2 : " + price));
-        subject.onNext(3000);
-
+        subject.onNext(3300);
         subject.subscribe(price -> System.out.println("# Observer(Subscriber) 3 : " + price));
-
-        subject.onNext(4000);
-        subject.onComplete();
+        subject.onNext(3400);
     }
 }
