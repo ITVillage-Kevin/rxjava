@@ -1,4 +1,4 @@
-package com.itvillage.chapter01;
+package com.itvillage.chapter01.chapter0101;
 
 import java.util.Arrays;
 import java.util.List;
