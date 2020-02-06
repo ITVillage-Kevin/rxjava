@@ -23,7 +23,7 @@ public class HelloRxJavaObservableCreateLamdaExample {
                 data -> Logger.on(data),
                 error -> Logger.oe(error),
                 () -> Logger.oc(),
-                disposable -> {/**아무것도 하지 않는다*/}
+                disposable -> {/**아무것도 하지 않는다.*/}
         );
 
          Thread.sleep(500L);
