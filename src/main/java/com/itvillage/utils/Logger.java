@@ -28,6 +28,6 @@ public class Logger {
 
     public static void os(Object obj){
         long time = System.currentTimeMillis() - TimeUtil.start;
-        System.out.println("onSuccess() | " + Thread.currentThread().getName() +  " | " + time + " | " + obj);
+        System.out.println("onSubscribe() | " + Thread.currentThread().getName() +  " | " + time + " | " + obj);
     }
 }
