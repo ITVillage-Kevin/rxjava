@@ -17,6 +17,6 @@ public class EmptyExample02 {
                         return Observable.empty();
 
                 })
-                .subscribe(num -> Logger.os(num));
+                .subscribe(num -> Logger.osr(num));
     }
 }

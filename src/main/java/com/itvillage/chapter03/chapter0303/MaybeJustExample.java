@@ -1,0 +1,25 @@
+package com.itvillage.chapter03.chapter0303;
+
+import com.itvillage.utils.DateUtil;
+import com.itvillage.utils.Logger;
+import io.reactivex.Maybe;
+import io.reactivex.Observable;
+import javafx.beans.value.ObservableBooleanValue;
+
+public class MaybeJustExample {
+    public static void main(String[] args){
+        Maybe.just(DateUtil.getNowDate())
+                .subscribe(
+                        data -> Logger.osc("# 현재 날짜시각: " + data),
+                        error -> Logger.oe(error),
+                        () -> Logger.oc()
+                );
+
+//        Maybe.empty()
+//                .subscribe(
+//                        data -> Logger.osc(data),
+//                        error -> Logger.oe(error),
+//                        () -> Logger.oc()
+//                );
+    }
+}
