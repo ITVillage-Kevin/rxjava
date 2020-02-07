@@ -1,6 +1,5 @@
-package com.itvillage.chapter03.chpater0301;
+package com.itvillage.chapter03.chapter0301;
 
-import com.itvillage.utils.Logger;
 import io.reactivex.subjects.PublishSubject;
 
 public class HotPublisherExample {

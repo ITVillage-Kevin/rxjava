@@ -1,10 +1,9 @@
-package com.itvillage.chapter03.chpater0301;
+package com.itvillage.chapter03.chapter0302;
 
 import com.itvillage.utils.Logger;
 import io.reactivex.BackpressureStrategy;
 import io.reactivex.Flowable;
 import io.reactivex.schedulers.Schedulers;
-import org.reactivestreams.Subscription;
 
 public class HelloRxJavaFlowableCreateLamdaExample {
     public static void main(String[] args) throws InterruptedException {

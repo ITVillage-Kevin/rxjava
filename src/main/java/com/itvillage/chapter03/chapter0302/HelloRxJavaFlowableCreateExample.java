@@ -1,4 +1,4 @@
-package com.itvillage.chapter03.chpater0301;
+package com.itvillage.chapter03.chapter0302;
 
 import com.itvillage.utils.Logger;
 import io.reactivex.BackpressureStrategy;
