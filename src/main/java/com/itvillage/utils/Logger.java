@@ -47,4 +47,8 @@ public class Logger {
         long time = System.currentTimeMillis() - TimeUtil.start;
         System.out.println("Completed a process | " + Thread.currentThread().getName() + " | " + time + " | "  + obj);
     }
+
+    public static void print(Object obj){
+        System.out.println(obj);
+    }
 }
