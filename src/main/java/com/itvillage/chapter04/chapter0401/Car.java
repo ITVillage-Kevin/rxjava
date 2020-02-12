@@ -10,6 +10,12 @@ public class Car {
     public Car(String carName){
         this.carName = carName;
     }
+
+    public Car(String carName, CarType carType){
+        this.carName = carName;
+        this.carType = carType;
+    }
+
     public Car(CarMaker carMaker, CarType carType, String carName, int carPrice, boolean isNew) {
         this.carMaker = carMaker;
         this.carType = carType;
