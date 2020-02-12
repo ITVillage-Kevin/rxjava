@@ -1,8 +1,11 @@
 package com.itvillage.chapter05.chapter0501;
 
+import com.itvillage.utils.Logger;
 import io.reactivex.Observable;
 import io.reactivex.ObservableEmitter;
 import io.reactivex.ObservableOnSubscribe;
+import io.reactivex.Observer;
+import io.reactivex.disposables.Disposable;
 
 public class ObservableCreateExample {
     public static void main(String[] args){
@@ -17,7 +20,27 @@ public class ObservableCreateExample {
                     }
                 }
         );
-        observable.subscribe(data -> System.out.println(data));
+        observable.subscribe(new Observer<String>() {
+            @Override
+            public void onSubscribe(Disposable d) {
+                // 아무것도 안함
+            }
+
+            @Override
+            public void onNext(String data) {
+                Logger.on(data);
+            }
+
+            @Override
+            public void onError(Throwable error) {
+                Logger.oe(error);
+            }
+
+            @Override
+            public void onComplete() {
+                Logger.oc();
+            }
+        });
 
     }
 }

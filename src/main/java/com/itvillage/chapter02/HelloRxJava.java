@@ -7,10 +7,8 @@ public class HelloRxJava {
         Observable<String> observable = Observable.just("Hello", "RxJava!");
         observable.subscribe(data -> System.out.println(data));
 
-//        Observable.just("Hello", "RxJava!")
-//                .subscribe(data -> System.out.println(data));
+        Observable.just("Hello", "RxJava!")
+                .subscribe(data -> System.out.println(data));
 
-//        Observable.just("Hello", "RxJava!")
-//                .subscribe(System.out::println);
     }
 }
