@@ -1,18 +1,22 @@
 package com.itvillage.chapter05.chapter0501;
 
+import com.itvillage.utils.Logger;
+
 import java.util.concurrent.CompletableFuture;
+import java.util.concurrent.Future;
 
 public class CarRepairShop {
     public int getCarRepairCostSync(int brokens) {
         return calculateCarRepair(brokens);
     }
 
-    public CompletableFuture<Integer> getCarRepairCostAsync(int brokens) {
+    public Future<Integer> getCarRepairCostAsync(int brokens) {
         return CompletableFuture.supplyAsync(() -> calculateCarRepair(brokens));
     }
 
     private int calculateCarRepair(int brokens){
         delay();
+        Logger.print("# 차량 수리비 계산 중................");
         return brokens * 20000;
     }
 

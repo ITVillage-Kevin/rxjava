@@ -5,7 +5,7 @@ import io.reactivex.Observable;
 import java.util.Arrays;
 import java.util.List;
 
-public class ObservableCreateFromIterableExample {
+public class ObservableFromIterableExample {
     public static void main(String[] args){
         List<String> countries = Arrays.asList("Korea", "Canada", "USA", "Italy");
 

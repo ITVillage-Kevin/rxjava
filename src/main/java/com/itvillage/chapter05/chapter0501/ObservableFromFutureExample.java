@@ -3,10 +3,11 @@ package com.itvillage.chapter05.chapter0501;
 import io.reactivex.Observable;
 
 import java.util.concurrent.CompletableFuture;
+import java.util.concurrent.Future;
 
-public class ObservableCreateFromFutureExample {
+public class ObservableFromFutureExample {
     public static void main(String[] args){
-        CompletableFuture<Double> future = getMaxPrice();
+        Future<Double> future = getMaxPrice();
 
         Observable.fromFuture(future)
                 .subscribe(System.out::print);

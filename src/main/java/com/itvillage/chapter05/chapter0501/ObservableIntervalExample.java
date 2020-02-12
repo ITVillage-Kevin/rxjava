@@ -1,4 +1,4 @@
-package com.itvillage.chapter05;
+package com.itvillage.chapter05.chapter0501;
 
 import com.itvillage.utils.Logger;
 import com.itvillage.utils.TimeUtil;
@@ -9,12 +9,11 @@ import java.util.concurrent.TimeUnit;
 /**
  * polling 용도로 주로 사용.
  */
-public class IntervalExample {
+public class ObservableIntervalExample {
     public static void main(String[] args){
-        TimeUtil.start();
-        Observable.interval(0L, 100L, TimeUnit.MILLISECONDS)
+        Observable.interval(0L, 1000L, TimeUnit.MILLISECONDS)
                 .map(num -> ++num + " count")
                 .subscribe(Logger::on);
-        TimeUtil.sleep(1000);
+        TimeUtil.sleep(3000);
     }
 }

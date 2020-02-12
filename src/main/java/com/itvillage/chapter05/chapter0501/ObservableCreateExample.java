@@ -4,9 +4,9 @@ import io.reactivex.Observable;
 import io.reactivex.ObservableEmitter;
 import io.reactivex.ObservableOnSubscribe;
 
-public class ObservableCreateCreateExample {
+public class ObservableCreateExample {
     public static void main(String[] args){
-        Observable<String> dataSoucre = Observable.create(
+        Observable<String> observable = Observable.create(
                 new ObservableOnSubscribe<String>() {
                     @Override
                     public void subscribe(ObservableEmitter<String> emitter) throws Exception {
@@ -17,14 +17,7 @@ public class ObservableCreateCreateExample {
                     }
                 }
         );
-        dataSoucre.subscribe(car -> System.out.println(car));
+        observable.subscribe(data -> System.out.println(data));
 
-
-//        Observable.create((ObservableEmitter<String> emitter) -> {
-//            emitter.onNext("Canada");
-//            emitter.onNext("USA");
-//            emitter.onNext("Korea");
-//            emitter.onComplete();
-//        }).subscribe(car -> System.out.println(car));
     }
 }
