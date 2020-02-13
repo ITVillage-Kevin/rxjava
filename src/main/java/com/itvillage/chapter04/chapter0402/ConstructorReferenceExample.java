@@ -1,6 +1,6 @@
 package com.itvillage.chapter04.chapter0402;
 
-import com.itvillage.chapter04.chapter0401.Car;
+import com.itvillage.common.Car;
 
 import java.util.function.Function;
 

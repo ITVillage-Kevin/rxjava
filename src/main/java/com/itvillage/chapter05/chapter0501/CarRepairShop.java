@@ -15,8 +15,8 @@ public class CarRepairShop {
     }
 
     private int calculateCarRepair(int brokens){
-        delay();
         Logger.print("# 차량 수리비 계산 중................");
+        delay();
         return brokens * 20000;
     }
 

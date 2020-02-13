@@ -1,8 +1,12 @@
 package com.itvillage.chapter04.chapter0401;
 
+import com.itvillage.common.Car;
+import com.itvillage.common.CarFilter;
+import com.itvillage.common.CarMaker;
+import com.itvillage.common.CarType;
+
 import java.util.Arrays;
 import java.util.List;
-import java.util.function.Predicate;
 
 /**
  * java.util.function에 내장된 Predicate를 사용하는 예제

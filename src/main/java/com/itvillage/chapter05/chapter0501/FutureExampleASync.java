@@ -7,7 +7,7 @@ import java.util.concurrent.Future;
 public class FutureExampleASync {
     public static void main(String[] args){
         long startTime = System.currentTimeMillis();
-
+        Logger.print("# Start");
         CarRepairShop shop = new CarRepairShop();
 
         // 차량 수리비(시간이 더 오래 걸리는 미래에 끝날 일)

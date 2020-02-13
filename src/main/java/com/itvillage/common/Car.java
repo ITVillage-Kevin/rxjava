@@ -1,4 +1,4 @@
-package com.itvillage.chapter04.chapter0401;
+package com.itvillage.common;
 
 public class Car {
     private CarMaker carMaker;
@@ -14,6 +14,13 @@ public class Car {
     public Car(String carName, CarType carType){
         this.carName = carName;
         this.carType = carType;
+    }
+
+    public Car(CarMaker carMaker, String carName, CarType carType, int carPrice){
+        this.carMaker = carMaker;
+        this.carName = carName;
+        this.carType = carType;
+        this.carPrice = carPrice;
     }
 
     public Car(CarMaker carMaker, CarType carType, String carName, int carPrice, boolean isNew) {

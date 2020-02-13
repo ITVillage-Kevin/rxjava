@@ -1,4 +1,4 @@
-package com.itvillage.chapter04.chapter0401;
+package com.itvillage.common;
 
 public enum CarMaker {
     HYUNDAE,

@@ -1,7 +1,7 @@
 package com.itvillage.chapter04.chapter0402;
 
-import com.itvillage.chapter04.chapter0401.Car;
-import com.itvillage.chapter04.chapter0401.CarType;
+import com.itvillage.common.Car;
+import com.itvillage.common.CarType;
 
 import java.util.Arrays;
 import java.util.List;
