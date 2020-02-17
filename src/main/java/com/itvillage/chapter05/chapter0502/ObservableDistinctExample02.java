@@ -8,7 +8,7 @@ public class ObservableDistinctExample02 {
     public static void main(String[] args) {
         Observable.fromArray(SampleData.carMakersDuplicated)
                 .distinct()
-                .filter(carMaker -> carMaker == CarMaker.SSANGYOUN)
+                .filter(carMaker -> carMaker == CarMaker.SSANGYOUNG)
                 .subscribe(System.out::println);
     }
 }

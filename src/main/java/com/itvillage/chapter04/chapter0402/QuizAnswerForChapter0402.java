@@ -10,7 +10,7 @@ import java.util.function.*;
 /**
  * 메서드 레퍼런스 퀴즈 문제 풀이
  */
-public class QuizAnswerForMethodReference {
+public class QuizAnswerForChapter0402 {
     public static void main(String[] args) {
         // 문제 1번
         Predicate<String> p1 = s -> s.isEmpty();

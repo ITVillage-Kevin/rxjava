@@ -4,6 +4,6 @@ public enum CarMaker {
     HYUNDAE,
     CHEVROLET,
     KIA,
-    SSANGYOUN,
+    SSANGYOUNG,
     SAMSUNG
 }

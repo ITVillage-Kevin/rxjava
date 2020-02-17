@@ -18,7 +18,7 @@ public class FunctionalInterfaceToLamdaExample {
                 new Car(CarMaker.SAMSUNG, CarType.SEDAN, "SM5", 35000000, true),
                 new Car(CarMaker.CHEVROLET, CarType.SUV, "트래버스", 50000000, true),
                 new Car(CarMaker.KIA, CarType.SEDAN, "K5", 20000000, false),
-                new Car(CarMaker.SSANGYOUN, CarType.SUV, "티볼리", 23000000, true)
+                new Car(CarMaker.SSANGYOUNG, CarType.SUV, "티볼리", 23000000, true)
         );
 
         List<Car> carsFilteredByPrice = CarFilter.filterCarByCustomPredicate(cars, (Car car) -> car.getCarPrice() > 30000000);
