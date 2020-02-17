@@ -9,11 +9,11 @@ import java.util.List;
 /**
  * Observable이 배출한 항목에 함수를 적용하여 배출된 값을 변환시킨다.
  */
-public class MapExample {
+public class ObservableMapExample01 {
     public static void main(String[] args){
         List<Integer> oddList = Arrays.asList(1, 3, 5, 7);
         Observable.fromIterable(oddList)
-                .map(num -> num + 1)
+                .map(num -> "1을 더한 결과: " + (num + 1))
                 .subscribe(Logger::on);
     }
 }
