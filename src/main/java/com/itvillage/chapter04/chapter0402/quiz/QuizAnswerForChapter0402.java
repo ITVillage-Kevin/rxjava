@@ -1,4 +1,4 @@
-package com.itvillage.chapter04.chapter0402;
+package com.itvillage.chapter04.chapter0402.quiz;
 
 import com.itvillage.common.Car;
 import com.itvillage.common.CarType;
