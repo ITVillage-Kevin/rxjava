@@ -21,7 +21,7 @@ public class ObservableSwitchMapExample03 {
                 .take(4)
                 .doOnNext(data -> Logger.don(data))
                 .switchMap(data -> { /** switchMap을 사용했기 때문에 마지막 키워드를 사용한 최신 검색 결과만 가져온다 */
-                    String keyword = keywords.get(data.intValue());
+                    String keyword = keywords.get(data.intValue()); // 데이터베이스에서 조회한다고 가정한다.
 
                     return Observable.just(searcher.search(keyword))
                             .delay(300L, TimeUnit.MILLISECONDS);

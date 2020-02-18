@@ -20,7 +20,7 @@ public class ObservableSwitchMapExample02 {
         Observable.interval(100L, TimeUnit.MILLISECONDS)
                 .take(4)
                 .concatMap(data -> { /** concatMap을 사용했기때문에 매번 모든 키워드 검색 결과를  다 가져온다.*/
-                    String keyword = keywords.get(data.intValue());
+                    String keyword = keywords.get(data.intValue()); // 데이터베이스에서 조회한다고 가정한다.
 
                     return Observable.just(searcher.search(keyword))
                             .doOnNext(notUse -> System.out.println("================================================================="))
