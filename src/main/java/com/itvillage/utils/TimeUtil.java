@@ -17,6 +17,9 @@ public class TimeUtil {
         end = System.currentTimeMillis();
     }
 
+    public static void takeTime(){
+        System.out.println("# 실행시간: " + (end - start) + " ms");
+    }
     public static String getCurrentTime(){
         return LocalTime.now().format(formatter);
     }
