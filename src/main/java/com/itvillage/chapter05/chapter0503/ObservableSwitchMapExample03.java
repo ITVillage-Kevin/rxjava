@@ -3,13 +3,13 @@ package com.itvillage.chapter05.chapter0503;
 import com.itvillage.utils.Logger;
 import com.itvillage.utils.TimeUtil;
 import io.reactivex.Observable;
+import io.reactivex.Observer;
 
-import java.util.Arrays;
-import java.util.List;
+import java.util.*;
 import java.util.concurrent.TimeUnit;
 
 /**
- * switchMap 대신 concatMap을 쓸 경우 비효율적인 검색 예제
+ * switchMap을 이용한 효율적인 키워드 검색 예제
  */
 public class ObservableSwitchMapExample03 {
     public static void main(String[] args) {
@@ -19,16 +19,17 @@ public class ObservableSwitchMapExample03 {
 
         Observable.interval(100L, TimeUnit.MILLISECONDS)
                 .take(4)
-                .concatMap(data -> {
+                .doOnNext(data -> Logger.don(data))
+                .switchMap(data -> { /** switchMap을 사용했기 때문에 마지막 키워드를 사용한 최신 검색 결과만 가져온다 */
                     String keyword = keywords.get(data.intValue());
 
                     return Observable.just(searcher.search(keyword))
-                            .doOnNext(notUse -> System.out.println("================================================================="))
                             .delay(300L, TimeUnit.MILLISECONDS);
                 })
                 .flatMap(resultList -> Observable.fromIterable(resultList))
                 .subscribe(Logger::on);
 
-        TimeUtil.sleep(2000L);
+        TimeUtil.sleep(1000L);
     }
 }
+
