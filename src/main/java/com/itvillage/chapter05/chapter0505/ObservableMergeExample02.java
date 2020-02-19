@@ -8,7 +8,7 @@ import io.reactivex.Observable;
 import java.util.concurrent.TimeUnit;
 
 /**
- * 각 구간의 차량 속도 데이터를 통지된 순서대로 merge하여 출력하는 예제
+ * 각 구간의 차량 속도 데이터를 3개의 Observable에서 통지된 순서대로 merge하여 출력하는 예제
  */
 public class ObservableMergeExample02 {
     public static void main(String[] args) {
