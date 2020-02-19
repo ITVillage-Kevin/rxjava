@@ -1,4 +1,4 @@
-package com.itvillage.quiz;
+package com.itvillage.common;
 
 import com.itvillage.common.Car;
 import com.itvillage.common.CarMaker;

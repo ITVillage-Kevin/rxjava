@@ -1,10 +1,9 @@
 package com.itvillage.chapter05.chapter0502;
 
 import com.itvillage.common.Car;
-import com.itvillage.quiz.SampleData;
+import com.itvillage.common.SampleData;
 import com.itvillage.utils.TimeUtil;
 import io.reactivex.Observable;
-import io.reactivex.functions.Predicate;
 
 /**
  * 파리미터로 지정한 조건이 될 때까지 데이터를 계속 발행

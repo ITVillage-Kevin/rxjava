@@ -1,7 +1,7 @@
 package com.itvillage.chapter05.chapter0502.quiz;
 
 import com.itvillage.common.CarMaker;
-import com.itvillage.quiz.SampleData;
+import com.itvillage.common.SampleData;
 import com.itvillage.utils.Logger;
 import io.reactivex.Observable;
 
