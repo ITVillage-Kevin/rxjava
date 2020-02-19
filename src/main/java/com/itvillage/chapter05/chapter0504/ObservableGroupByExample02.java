@@ -7,6 +7,9 @@ import com.itvillage.utils.Logger;
 import io.reactivex.Observable;
 import io.reactivex.observables.GroupedObservable;
 
+/**
+ * Group으로 묶은 데이터들 중에서 filter를 이용해 필터링한 Group의 데이터만 출력하는 예제
+ */
 public class ObservableGroupByExample02 {
     public static void main(String[] args) {
         Observable<GroupedObservable<CarMaker, Car>> observable =
