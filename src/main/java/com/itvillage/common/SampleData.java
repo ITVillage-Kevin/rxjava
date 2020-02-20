@@ -73,6 +73,13 @@ public class SampleData {
             55, 40, 73, 70, 85, 99, 120, 85, 75, 73, 80, 70, 95, 95, 100, 120, 110, 120, 140, 120, 100, 125, 135, 125
     );
 
+    // 1시간 동안 서울의 온도 변화 데이터
+    public static int[] temperatureOfSeoul = {10, 13, 14, 12, 11, 9};
+
+    // 1시간 동안 서울의 습도 변화 데이터
+    public static int[] humidityOfSeoul = {45, 35, 33, 43, 32, 62};
+
+
     public static Observable<String> getSpeedPerSection(String section, long interval, final int[] speedData){
         return Observable.interval(interval, TimeUnit.MILLISECONDS)
                 .map(Long::intValue)

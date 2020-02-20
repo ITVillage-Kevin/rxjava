@@ -11,10 +11,10 @@ import java.util.concurrent.TimeUnit;
  */
 public class ObservableMergeExample01 {
     public static void main(String[] args) {
-        Observable<Long> observable1 = Observable.interval(500L, TimeUnit.MILLISECONDS)
+        Observable<Long> observable1 = Observable.interval(200L, TimeUnit.MILLISECONDS)
                 .take(5);
 
-        Observable<Long> observable2 = Observable.interval(700L, TimeUnit.MILLISECONDS)
+        Observable<Long> observable2 = Observable.interval(400L, TimeUnit.MILLISECONDS)
                 .take(5)
                 .map(num -> num + 1000);
 
