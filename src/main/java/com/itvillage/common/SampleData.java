@@ -82,9 +82,9 @@ public class SampleData {
 
     public static Observable<String> getSpeedPerSection(String section, long interval, final int[] speedData){
         return Observable.interval(interval, TimeUnit.MILLISECONDS)
+                .take(speedData.length)
                 .map(Long::intValue)
-                .map(i -> section + " 지점의 차량 속도: " + speedData[i])
-                .take(speedData.length);
+                .map(i -> section + " 지점의 차량 속도: " + speedData[i]);
     }
 
 
