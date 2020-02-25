@@ -3,9 +3,6 @@ package com.itvillage.chapter05.chapter0506;
 import com.itvillage.utils.Logger;
 import com.itvillage.utils.TimeUtil;
 import io.reactivex.Observable;
-import io.reactivex.ObservableSource;
-import io.reactivex.Observer;
-import io.reactivex.schedulers.Schedulers;
 
 import java.util.concurrent.TimeUnit;
 

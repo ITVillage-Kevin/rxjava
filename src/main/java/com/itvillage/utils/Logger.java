@@ -12,9 +12,9 @@ public class Logger {
         System.out.println("doOnSuccess() | " + Thread.currentThread().getName() + " | " + time + " | "  + obj);
     }
 
-    public static void doc(){
+    public static void doc(Object obj){
         String time = TimeUtil.getCurrentTime();
-        System.out.println("doOnComplete() | " + Thread.currentThread().getName() + " | " + time + " | ");
+        System.out.println("doOnComplete() | " + Thread.currentThread().getName() + " | " + time + " | " + obj);
     }
 
     public static void osr(Object obj){
