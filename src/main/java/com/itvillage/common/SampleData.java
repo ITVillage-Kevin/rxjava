@@ -12,13 +12,21 @@ import java.util.concurrent.TimeUnit;
 public class SampleData {
     public static CarMaker[] carMakersDuplicated = {
             CarMaker.CHEVROLET,
+            CarMaker.HYUNDAE,
+            CarMaker.SAMSUNG,
+            CarMaker.SSANGYOUNG,
+            CarMaker.CHEVROLET,
+            CarMaker.HYUNDAE,
+            CarMaker.KIA,
+            CarMaker.SSANGYOUNG
+    };
+
+    public static CarMaker[] carMakers = {
             CarMaker.CHEVROLET,
             CarMaker.HYUNDAE,
             CarMaker.SAMSUNG,
-            CarMaker.HYUNDAE,
             CarMaker.SSANGYOUNG,
-            CarMaker.KIA,
-            CarMaker.SSANGYOUNG
+            CarMaker.KIA
     };
 
     public static List<Car> carList =

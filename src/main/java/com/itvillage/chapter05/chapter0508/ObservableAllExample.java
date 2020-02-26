@@ -5,6 +5,9 @@ import com.itvillage.common.SampleData;
 import com.itvillage.utils.Logger;
 import io.reactivex.Observable;
 
+/**
+ * all을 이용하여 통지된 모든 데이터가 파라미터로 입력된 조건과 일치하는지 판단하는 예제
+ */
 public class ObservableAllExample {
     public static void main(String[] args) {
         Observable.fromIterable(SampleData.carList)

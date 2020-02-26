@@ -12,14 +12,21 @@ import java.util.concurrent.TimeUnit;
  */
 public class ObservableTimeOutExample {
     public static void main(String[] args) {
-        Observable.range(1, 4)
-                .flatMap(num -> Observable.interval(1000L, TimeUnit.MILLISECONDS).map(i -> num * i))
-                .timeout(500L, TimeUnit.MILLISECONDS)
+        Observable.range(1, 5)
+                .map(num -> {
+                    long time = 1000L;
+                    if(num == 4){
+                        time = 1500L;
+                    }
+                    TimeUtil.sleep(time);
+                    return num;
+                })
+                .timeout(1200L, TimeUnit.MILLISECONDS)
                 .subscribe(
                         Logger::on,
                         Logger::oe
                 );
 
-        TimeUtil.sleep(1500L);
+        TimeUtil.sleep(4000L);
     }
 }

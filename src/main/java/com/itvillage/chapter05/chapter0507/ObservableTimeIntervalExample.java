@@ -6,7 +6,7 @@ import com.itvillage.utils.TimeUtil;
 import io.reactivex.Observable;
 
 /**
- * timeInterval을 이용해 통지되 데이터의 통지 시간을 확인하는 예제
+ * timeInterval을 이용해서 데이터가 통지되는데 걸린 시간을 통지하는 예제
  */
 public class ObservableTimeIntervalExample {
     public static void main(String[] args) {
@@ -17,7 +17,7 @@ public class ObservableTimeIntervalExample {
                 })
                 .timeInterval()
                 .subscribe(
-                        timed -> Logger.on("# 통지 시간: " + timed.time() + "\t# 통지된 데이터: " + timed.value())
+                        timed -> Logger.on("# 통지하는데 걸린 시간: " + timed.time() + "\t# 통지된 데이터: " + timed.value())
                 );
     }
 }
