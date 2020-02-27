@@ -11,7 +11,7 @@ public class ObservableReduceExample03 {
         Observable.just("a", "b", "c", "d", "e")
                 .doOnNext(Logger::don)
                 .reduce((x, y) -> {
-                    Logger.print(x + ", " + y);
+                    Logger.print("# reduce 입력 값 : " + x + ", " + y);
                     return "(" + x + ", " + y + ")";
                 })
                 .subscribe(Logger::on);
