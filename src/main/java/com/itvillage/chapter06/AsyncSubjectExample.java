@@ -1,22 +1,28 @@
 package com.itvillage.chapter06;
 
+import com.itvillage.utils.Logger;
 import io.reactivex.subjects.AsyncSubject;
 
 /**
- * Observable 의 데이터 소스 중 마지막 값만 발행
+ * 구독 시점에 상관없이 모든 소비자들이 마지막으로 통지된 데이터만 전달 받는 AsyncSubject 예제
  */
 public class AsyncSubjectExample {
     public static void main(String[] args){
         AsyncSubject<Integer> subject = AsyncSubject.create();
         subject.onNext(1000);
-        subject.subscribe(price -> System.out.println("# Observer(Subscriber) 1 : " + price));
+
+        subject.doOnNext(price -> Logger.don("# 소비자 1 : " + price))
+                .subscribe(price -> Logger.on("# 소비자 1 : " + price));
         subject.onNext(2000);
-        subject.subscribe(price -> System.out.println("# Observer(Subscriber) 2 : " + price));
+
+        subject.doOnNext(price -> Logger.don("# 소비자 2 : " + price))
+                .subscribe(price -> Logger.on("# 소비자 2 : " + price));
         subject.onNext(3000);
 
-        subject.subscribe(price -> System.out.println("# Observer(Subscriber) 3 : " + price));
-
+        subject.doOnNext(price -> Logger.don("# 소비자 3 : " + price))
+                .subscribe(price -> Logger.on("# 소비자 3 : " + price));
         subject.onNext(4000);
+
         subject.onComplete();
     }
 }
