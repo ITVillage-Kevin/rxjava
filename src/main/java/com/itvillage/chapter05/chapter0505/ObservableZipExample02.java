@@ -23,7 +23,5 @@ public class ObservableZipExample02 {
         Observable.zip(observable1, observable2, observable3, observable4,
                             (data1, data2, data3, hour) -> hour + "시: " + Collections.max(Arrays.asList(data1, data2, data3)))
                 .subscribe(Logger::on);
-
-        System.out.println(Collections.max(Arrays.asList(1,2,3,4)));
     }
 }
