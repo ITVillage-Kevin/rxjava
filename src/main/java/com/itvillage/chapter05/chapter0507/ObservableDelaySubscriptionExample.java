@@ -13,7 +13,7 @@ import java.util.concurrent.TimeUnit;
  */
 public class ObservableDelaySubscriptionExample {
     public static void main(String[] args) {
-        Logger.print("# 실행 시작 시간: " + TimeUtil.getCurrentTime());
+        Logger.print("# 실행 시작 시간: " + TimeUtil.getCurrentTimeFormatted());
 
         Observable.just(1, 3, 4, 6)
                 .doOnNext(Logger::don)

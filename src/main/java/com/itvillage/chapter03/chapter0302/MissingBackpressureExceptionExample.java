@@ -1,6 +1,7 @@
 package com.itvillage.chapter03.chapter0302;
 
 import com.itvillage.utils.Logger;
+import com.itvillage.utils.TimeUtil;
 import io.reactivex.Flowable;
 import io.reactivex.schedulers.Schedulers;
 
@@ -14,8 +15,8 @@ public class MissingBackpressureExceptionExample {
                 .observeOn(Schedulers.computation())
                 .subscribe(
                         data -> {
-                            Logger.print("대기중..");
-                            Thread.sleep(1000L);
+                            Logger.print("# 소비자 처리 대기 중..");
+                            TimeUtil.sleep(1000L);
                             Logger.on(data);
                         },
                         error -> Logger.oe(error),
