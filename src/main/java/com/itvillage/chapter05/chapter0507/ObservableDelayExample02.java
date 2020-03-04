@@ -1,5 +1,6 @@
 package com.itvillage.chapter05.chapter0507;
 
+import com.itvillage.utils.LogType;
 import com.itvillage.utils.Logger;
 import com.itvillage.utils.NumberUtil;
 import com.itvillage.utils.TimeUtil;
@@ -14,6 +15,6 @@ public class ObservableDelayExample02 {
                 .delay(item -> {
                     TimeUtil.sleep(1000L);
                     return Observable.just(item); // 새로운 Observable의 통지 시점에, 원본 데이터를 통지한다.
-                }).subscribe(Logger::on);
+                }).subscribe(data -> Logger.log(LogType.ON_NEXT, data));
     }
 }

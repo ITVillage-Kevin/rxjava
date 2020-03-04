@@ -3,6 +3,7 @@ package com.itvillage.chapter05.chapter0504;
 import com.itvillage.common.Car;
 import com.itvillage.common.CarMaker;
 import com.itvillage.common.SampleData;
+import com.itvillage.utils.LogType;
 import com.itvillage.utils.Logger;
 import io.reactivex.Observable;
 import io.reactivex.observables.GroupedObservable;
@@ -17,7 +18,7 @@ public class ObservableGroupByExample01 {
 
         observable.subscribe(
                 groupedObservable -> groupedObservable.subscribe(
-                        car -> Logger.on("Group: " + groupedObservable.getKey() + "\t Car name: " + car.getCarName())
+                        car -> Logger.log(LogType.ON_NEXT, "Group: " + groupedObservable.getKey() + "\t Car name: " + car.getCarName())
                 )
         );
 

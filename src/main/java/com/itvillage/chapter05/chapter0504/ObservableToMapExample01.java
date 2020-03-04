@@ -1,5 +1,6 @@
 package com.itvillage.chapter05.chapter0504;
 
+import com.itvillage.utils.LogType;
 import com.itvillage.utils.Logger;
 import io.reactivex.Observable;
 import io.reactivex.Single;
@@ -15,6 +16,6 @@ public class ObservableToMapExample01 {
                 Observable.just("a-Alpha", "b-Brave", "c-Charlie", "e-Echo")
                         .toMap(data -> data.split("-")[0]); // 반환값은 Map의 key가 된다.
 
-        single.subscribe(map -> Logger.on(map));
+        single.subscribe(map -> Logger.log(LogType.ON_NEXT, map));
     }
 }

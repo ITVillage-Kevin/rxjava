@@ -1,5 +1,6 @@
 package com.itvillage.chapter05.chapter0504;
 
+import com.itvillage.utils.LogType;
 import com.itvillage.utils.Logger;
 import io.reactivex.Observable;
 import io.reactivex.Single;
@@ -14,6 +15,6 @@ public class ObservableToListExample01 {
         Single<List<Integer>> single = Observable.just(1, 3, 5, 7, 9)
                 .toList();
 
-        single.subscribe(Logger::on);
+        single.subscribe(data -> Logger.log(LogType.ON_NEXT, data));
     }
 }

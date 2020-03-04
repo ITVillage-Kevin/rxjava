@@ -1,5 +1,6 @@
 package com.itvillage.chapter03.chapter0302;
 
+import com.itvillage.utils.LogType;
 import com.itvillage.utils.Logger;
 import io.reactivex.BackpressureStrategy;
 import io.reactivex.Flowable;
@@ -43,17 +44,17 @@ public class HelloRxJavaFlowableCreateExample {
 
                     @Override
                     public void onNext(String data) {
-                        Logger.on(data);
+                        Logger.log(LogType.ON_NEXT, data);
                     }
 
                     @Override
                     public void onError(Throwable error) {
-                        Logger.oe(error);
+                        Logger.log(LogType.ON_ERROR, error);
                     }
 
                     @Override
                     public void onComplete() {
-                        Logger.oc();
+                        Logger.log(LogType.ON_COMPLETE);
                     }
                 });
 

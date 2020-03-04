@@ -1,5 +1,6 @@
 package com.itvillage.chapter05.chapter0503;
 
+import com.itvillage.utils.LogType;
 import com.itvillage.utils.Logger;
 import io.reactivex.Observable;
 
@@ -14,6 +15,6 @@ public class ObservableMapExample01 {
         List<Integer> oddList = Arrays.asList(1, 3, 5, 7);
         Observable.fromIterable(oddList)
                 .map(num -> "1을 더한 결과: " + (num + 1))
-                .subscribe(Logger::on);
+                .subscribe(data -> Logger.log(LogType.ON_NEXT, data));
     }
 }

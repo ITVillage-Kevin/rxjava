@@ -2,6 +2,7 @@ package com.itvillage.chapter05.chapter0504.quiz;
 
 import com.itvillage.common.CarMaker;
 import com.itvillage.common.SampleData;
+import com.itvillage.utils.LogType;
 import com.itvillage.utils.Logger;
 import io.reactivex.Observable;
 import io.reactivex.Single;
@@ -19,7 +20,7 @@ public class QuizAnswerForChapter050401 {
                                 car -> car.getCarName(),
                                 car -> car.getCarMaker()
                         );
-        single.subscribe(map -> Logger.on(map));
+        single.subscribe(map -> Logger.log(LogType.ON_NEXT, map));
     }
 
 

@@ -1,5 +1,6 @@
 package com.itvillage.chapter08;
 
+import com.itvillage.utils.LogType;
 import com.itvillage.utils.Logger;
 import io.reactivex.Observable;
 
@@ -11,16 +12,16 @@ public class DoOnEachExample {
         Observable.range(1, 5)
                 .doOnEach(notification -> {
                     if(notification.isOnNext())
-                        Logger.don("# 생산자: 데이터 통지 - " + notification.getValue());
+                        Logger.log(LogType.DO_ON_NEXT, "# 생산자: 데이터 통지 - " + notification.getValue());
                     else if(notification.isOnError())
-                        Logger.doe("# 생산자: 에러 발생 - " + notification.getError());
+                        Logger.log(LogType.DO_ON_EACH, "# 생산자: 에러 발생 - " + notification.getError());
                     else
-                        Logger.doc("# 생산자: 데이터 통지 완료");
+                        Logger.log(LogType.DO_ON_COMPLETE, "# 생산자: 데이터 통지 완료");
                 })
                 .subscribe(
-                        Logger::on,
-                        Logger::oe,
-                        Logger::oc
+                        data -> Logger.log(LogType.ON_NEXT, data),
+                        error -> Logger.log(LogType.ON_ERROR, error),
+                        () -> Logger.log(LogType.ON_COMPLETE)
                 );
     }
 }

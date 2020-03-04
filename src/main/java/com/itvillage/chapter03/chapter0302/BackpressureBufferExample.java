@@ -1,5 +1,6 @@
 package com.itvillage.chapter03.chapter0302;
 
+import com.itvillage.utils.LogType;
 import com.itvillage.utils.Logger;
 import com.itvillage.utils.TimeUtil;
 import io.reactivex.BackpressureOverflowStrategy;
@@ -19,16 +20,16 @@ public class BackpressureBufferExample {
         Flowable.interval(1L, TimeUnit.MILLISECONDS)
                 .onBackpressureBuffer(
                         128,
-                        () -> Logger.print("Overflow 발생!"),
+                        () -> Logger.log(LogType.PRINT, "Overflow 발생!"),
                         BackpressureOverflowStrategy.DROP_LATEST)
-                .doOnNext(data -> Logger.don(data))
+                .doOnNext(data -> Logger.log(LogType.DO_ON_NEXT, data))
                 .observeOn(Schedulers.computation())
                 .subscribe(
                         data -> {
                             TimeUtil.sleep(5L);
-                            Logger.on(data);
+                            Logger.log(LogType.ON_NEXT, data);
                         },
-                        error -> Logger.oe(error)
+                        error -> Logger.log(LogType.ON_ERROR, error)
                 );
 
         TimeUtil.sleep(1000L);

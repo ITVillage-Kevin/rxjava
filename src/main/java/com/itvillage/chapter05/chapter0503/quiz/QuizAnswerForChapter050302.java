@@ -1,5 +1,6 @@
 package com.itvillage.chapter05.chapter0503.quiz;
 
+import com.itvillage.utils.LogType;
 import com.itvillage.utils.Logger;
 import com.itvillage.utils.TimeUtil;
 import io.reactivex.Observable;
@@ -11,6 +12,6 @@ public class QuizAnswerForChapter050302 {
                 .flatMap(
                         num -> Observable.range(1, 9)
                         .map(row -> num + " * " + row + " = " + num * row)
-                ).subscribe(Logger::print);
+                ).subscribe(data -> Logger.log(LogType.ON_NEXT, data));
     }
 }

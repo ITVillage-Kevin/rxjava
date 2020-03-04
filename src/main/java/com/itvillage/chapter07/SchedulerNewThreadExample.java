@@ -1,5 +1,6 @@
 package com.itvillage.chapter07;
 
+import com.itvillage.utils.LogType;
 import com.itvillage.utils.Logger;
 import com.itvillage.utils.TimeUtil;
 import io.reactivex.Observable;
@@ -15,11 +16,11 @@ public class SchedulerNewThreadExample {
 
         observable.subscribeOn(Schedulers.newThread())
                 .map(data -> "## " + data + " ##")
-                .subscribe(Logger::on);
+                .subscribe(data -> Logger.log(LogType.ON_NEXT, data));
 
         observable.subscribeOn(Schedulers.newThread())
                 .map(data -> "$$ " + data + " $$")
-                .subscribe(Logger::on);
+                .subscribe(data -> Logger.log(LogType.ON_NEXT, data));
 
 
         TimeUtil.sleep(300L);

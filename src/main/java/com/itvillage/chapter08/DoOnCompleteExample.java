@@ -1,5 +1,6 @@
 package com.itvillage.chapter08;
 
+import com.itvillage.utils.LogType;
 import com.itvillage.utils.Logger;
 import io.reactivex.Observable;
 
@@ -9,11 +10,11 @@ import io.reactivex.Observable;
 public class DoOnCompleteExample {
     public static void main(String[] args) {
         Observable.range(1, 5)
-                .doOnComplete(() -> Logger.doc("# 생산자: 데이터 통지 완료"))
+                .doOnComplete(() -> Logger.log(LogType.DO_ON_COMPLETE, "# 생산자: 데이터 통지 완료"))
                 .subscribe(
-                        Logger::on,
-                        Logger::oe,
-                        Logger::oc
+                        data -> Logger.log(LogType.ON_NEXT, data),
+                        error -> Logger.log(LogType.ON_ERROR, error),
+                        () -> Logger.log(LogType.ON_COMPLETE)
                 );
     }
 }

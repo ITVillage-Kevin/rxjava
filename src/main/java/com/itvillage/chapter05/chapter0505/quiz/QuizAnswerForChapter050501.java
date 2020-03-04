@@ -1,6 +1,7 @@
 package com.itvillage.chapter05.chapter0505.quiz;
 
 import com.itvillage.common.SampleData;
+import com.itvillage.utils.LogType;
 import com.itvillage.utils.Logger;
 import io.reactivex.Observable;
 
@@ -21,6 +22,6 @@ public class QuizAnswerForChapter050501 {
         );
 
         Observable.zip(salesList, sales -> (int)sales[0] + (int)sales[1] + (int)sales[2])
-                .subscribe(Logger::on);
+                .subscribe(data -> Logger.log(LogType.ON_NEXT, data));
     }
 }

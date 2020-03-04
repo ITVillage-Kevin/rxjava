@@ -1,5 +1,6 @@
 package com.itvillage.chapter05.chapter0506;
 
+import com.itvillage.utils.LogType;
 import com.itvillage.utils.Logger;
 import com.itvillage.utils.TimeUtil;
 import io.reactivex.Observable;
@@ -21,22 +22,22 @@ public class ObservableRetryExample02 {
                                     try{
                                         result = num / i;
                                     }catch(ArithmeticException ex){
-                                        Logger.print("error: " + ex.getMessage());
+                                        Logger.log(LogType.PRINT, "error: " + ex.getMessage());
                                         throw ex;
                                     }
                                     return result;
                                 })
                                 .retry((retryCount, ex) -> {
-                                    Logger.print("# 재시도 횟수: " + retryCount);
+                                    Logger.log(LogType.PRINT, "# 재시도 횟수: " + retryCount);
                                     TimeUtil.sleep(1000L);
                                     return retryCount < RETRY_MAX ? true : false;
                                 })
                                 .onErrorReturn(throwable -> -1L)
 
                 ).subscribe(
-                        Logger::on,
-                        Logger::oe,
-                        Logger::oc
+                        data -> Logger.log(LogType.ON_NEXT, data),
+                        error -> Logger.log(LogType.ON_ERROR, error),
+                        () -> Logger.log(LogType.ON_COMPLETE)
                 );
 
 

@@ -1,5 +1,6 @@
 package com.itvillage.chapter05.chapter0503;
 
+import com.itvillage.utils.LogType;
 import com.itvillage.utils.Logger;
 import io.reactivex.Observable;
 
@@ -13,7 +14,7 @@ public class ObservableFlatMapExample03 {
                         data -> Observable.range(1, 9),
                         (sourceData, transformedData) -> sourceData + " * " + transformedData + " = " + sourceData * transformedData
                 )
-                .subscribe(Logger::on);
+                .subscribe(data -> Logger.log(LogType.ON_NEXT, data));
 
     }
 }

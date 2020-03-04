@@ -1,6 +1,7 @@
 package com.itvillage.chapter03.chapter0303;
 
 import com.itvillage.utils.DateUtil;
+import com.itvillage.utils.LogType;
 import com.itvillage.utils.Logger;
 import io.reactivex.Maybe;
 import io.reactivex.MaybeEmitter;
@@ -27,17 +28,17 @@ public class MaybeCreateExample {
 
             @Override
             public void onSuccess(String data) {
-                Logger.osc("# 현재 날짜시각: " + data);
+                Logger.log(LogType.ON_SUCCESS, "# 현재 날짜시각: " + data);
             }
 
             @Override
             public void onError(Throwable error) {
-                Logger.oe(error);
+                Logger.log(LogType.ON_ERROR, error);
             }
 
             @Override
             public void onComplete() {
-                Logger.oc();
+                Logger.log(LogType.ON_COMPLETE);
             }
         });
     }

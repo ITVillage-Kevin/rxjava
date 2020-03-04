@@ -1,5 +1,6 @@
 package com.itvillage.chapter07;
 
+import com.itvillage.utils.LogType;
 import com.itvillage.utils.Logger;
 import com.itvillage.utils.TimeUtil;
 import io.reactivex.Observable;
@@ -16,11 +17,11 @@ public class SchedulerIOExample01 {
         File[] files = new File("src/main/java/com/itvillage/").listFiles();
 
         Observable.fromArray(files)
-                .doOnNext(Logger::don)
+                .doOnNext(data -> Logger.log(LogType.DO_ON_NEXT, data))
                 .filter(data -> data.isDirectory())
                 .map(dir -> dir.getName())
                 .subscribeOn(Schedulers.io())
-                .subscribe(Logger::on);
+                .subscribe(data -> Logger.log(LogType.ON_NEXT, data));
 
         TimeUtil.sleep(1000L);
 

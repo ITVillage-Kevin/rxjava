@@ -1,5 +1,6 @@
 package com.itvillage.chapter05.chapter0506;
 
+import com.itvillage.utils.LogType;
 import com.itvillage.utils.Logger;
 import com.itvillage.utils.TimeUtil;
 import io.reactivex.Observable;
@@ -17,10 +18,10 @@ public class ObservableOnErrorResumeNextExample {
                         .take(5)
                         .map(i -> num / i)
                         .onErrorResumeNext(throwable -> {
-                            Logger.print("# 운영자에게 이메일 발송: " + throwable.getMessage());
+                            Logger.log(LogType.PRINT, "# 운영자에게 이메일 발송: " + throwable.getMessage());
                             return Observable.interval(200L,TimeUnit.MILLISECONDS).take(5).skip(1).map(i -> num / i);
                         })
-                ).subscribe(Logger::on);
+                ).subscribe(data -> Logger.log(LogType.ON_NEXT, data));
 
         TimeUtil.sleep(2000L);
     }

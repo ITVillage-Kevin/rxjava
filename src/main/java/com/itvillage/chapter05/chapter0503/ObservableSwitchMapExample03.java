@@ -1,5 +1,6 @@
 package com.itvillage.chapter05.chapter0503;
 
+import com.itvillage.utils.LogType;
 import com.itvillage.utils.Logger;
 import com.itvillage.utils.TimeUtil;
 import io.reactivex.Observable;
@@ -19,7 +20,7 @@ public class ObservableSwitchMapExample03 {
 
         Observable.interval(100L, TimeUnit.MILLISECONDS)
                 .take(4)
-                .doOnNext(data -> Logger.don(data))
+                .doOnNext(data -> Logger.log(LogType.DO_ON_NEXT, data))
                 .switchMap(data -> { /** switchMap을 사용했기 때문에 마지막 키워드를 사용한 최신 검색 결과만 가져온다 */
                     String keyword = keywords.get(data.intValue()); // 데이터베이스에서 조회한다고 가정한다.
 
@@ -27,7 +28,7 @@ public class ObservableSwitchMapExample03 {
                             .delay(300L, TimeUnit.MILLISECONDS);
                 })
                 .flatMap(resultList -> Observable.fromIterable(resultList))
-                .subscribe(Logger::on);
+                .subscribe(data -> Logger.log(LogType.ON_NEXT, data));
 
         TimeUtil.sleep(1000L);
     }

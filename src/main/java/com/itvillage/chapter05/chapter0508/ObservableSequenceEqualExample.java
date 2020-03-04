@@ -2,6 +2,7 @@ package com.itvillage.chapter05.chapter0508;
 
 import com.itvillage.common.CarMaker;
 import com.itvillage.common.SampleData;
+import com.itvillage.utils.LogType;
 import com.itvillage.utils.Logger;
 import com.itvillage.utils.TimeUtil;
 import io.reactivex.Observable;
@@ -19,7 +20,7 @@ public class ObservableSequenceEqualExample {
                         .delay(carMaker -> {
                             TimeUtil.sleep(500L);
                             return Observable.just(carMaker);
-                        }).doOnNext(data -> Logger.don("# observable1 : " + data));
+                        }).doOnNext(data -> Logger.log(LogType.DO_ON_NEXT, "# observable1 : " + data));
 
         Observable<CarMaker> observable2 =
                 Observable
@@ -27,10 +28,10 @@ public class ObservableSequenceEqualExample {
                         .delay(carMaker -> {
                             TimeUtil.sleep(1000L);
                             return Observable.just(carMaker);
-                        }).doOnNext(data -> Logger.don("# observable2 : " + data));
+                        }).doOnNext(data -> Logger.log(LogType.DO_ON_NEXT, "# observable2 : " + data));
 
 
         Observable.sequenceEqual(observable1, observable2)
-                .subscribe(Logger::on);
+                .subscribe(data -> Logger.log(LogType.ON_NEXT, data));
     }
 }

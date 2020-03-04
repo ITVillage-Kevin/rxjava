@@ -1,5 +1,6 @@
 package com.itvillage.chapter05.chapter0501;
 
+import com.itvillage.utils.LogType;
 import com.itvillage.utils.Logger;
 import com.itvillage.utils.TimeUtil;
 import io.reactivex.Observable;
@@ -15,7 +16,7 @@ public class ObservableTimerExample {
                 Observable.timer(2000, TimeUnit.MILLISECONDS)
                         .map(count -> "Do work!");
 
-        observable.subscribe(data -> Logger.on(data));
+        observable.subscribe(data -> Logger.log(LogType.ON_NEXT, data));
 
         TimeUtil.sleep(3000);
     }

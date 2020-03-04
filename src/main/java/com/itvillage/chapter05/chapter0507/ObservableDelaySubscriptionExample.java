@@ -1,5 +1,6 @@
 package com.itvillage.chapter05.chapter0507;
 
+import com.itvillage.utils.LogType;
 import com.itvillage.utils.Logger;
 import com.itvillage.utils.TimeUtil;
 import io.reactivex.Observable;
@@ -13,12 +14,12 @@ import java.util.concurrent.TimeUnit;
  */
 public class ObservableDelaySubscriptionExample {
     public static void main(String[] args) {
-        Logger.print("# 실행 시작 시간: " + TimeUtil.getCurrentTimeFormatted());
+        Logger.log(LogType.PRINT, "# 실행 시작 시간: " + TimeUtil.getCurrentTimeFormatted());
 
         Observable.just(1, 3, 4, 6)
-                .doOnNext(Logger::don)
+                .doOnNext(data -> Logger.log(LogType.DO_ON_NEXT, data))
                 .delaySubscription(2000L, TimeUnit.MILLISECONDS)
-                .subscribe(Logger::on);
+                .subscribe(data -> Logger.log(LogType.ON_NEXT, data));
 
         TimeUtil.sleep(2500L);
     }

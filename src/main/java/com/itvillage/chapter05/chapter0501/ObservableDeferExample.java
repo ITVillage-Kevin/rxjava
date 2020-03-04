@@ -1,5 +1,6 @@
 package com.itvillage.chapter05.chapter0501;
 
+import com.itvillage.utils.LogType;
 import com.itvillage.utils.Logger;
 import io.reactivex.Observable;
 
@@ -18,12 +19,12 @@ public class ObservableDeferExample {
 
         Observable<LocalTime> observableJust = Observable.just(LocalTime.now());
 
-        observable.subscribe(time -> Logger.print(" # defer() 구독자 1의 구독 시간: " + time));
-        observableJust.subscribe(time -> Logger.print(" # just() 구독자 1의 구독 시간: " + time));
+        observable.subscribe(time -> Logger.log(LogType.PRINT, " # defer() 구독자 1의 구독 시간: " + time));
+        observableJust.subscribe(time -> Logger.log(LogType.PRINT, " # just() 구독자 1의 구독 시간: " + time));
 
         Thread.sleep(3000);
 
-        observable.subscribe(time -> Logger.print(" # defer() 구독자 1의 구독 시간: " + time));
-        observableJust.subscribe(time -> Logger.print(" # just() 구독자 1의 구독 시간: " + time));
+        observable.subscribe(time -> Logger.log(LogType.PRINT, " # defer() 구독자 1의 구독 시간: " + time));
+        observableJust.subscribe(time -> Logger.log(LogType.PRINT, " # just() 구독자 1의 구독 시간: " + time));
     }
 }

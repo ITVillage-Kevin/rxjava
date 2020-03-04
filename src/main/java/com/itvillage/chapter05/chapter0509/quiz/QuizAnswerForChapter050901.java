@@ -1,5 +1,6 @@
 package com.itvillage.chapter05.chapter0509.quiz;
 
+import com.itvillage.utils.LogType;
 import com.itvillage.utils.Logger;
 import io.reactivex.Observable;
 
@@ -13,9 +14,9 @@ public class QuizAnswerForChapter050901 {
         Observable.range(1, 9)
                 .reduce(seed, (x, y) -> {
                     int b = seed - y;
-                    Logger.print(x + ", " + b);
+                    Logger.log(LogType.PRINT, x + ", " + b);
                     return x - b;
                 })
-                .subscribe(Logger::on);
+                .subscribe(data -> Logger.log(LogType.ON_NEXT, data));
     }
 }

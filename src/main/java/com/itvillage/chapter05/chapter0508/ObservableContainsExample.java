@@ -2,6 +2,7 @@ package com.itvillage.chapter05.chapter0508;
 
 import com.itvillage.common.CarMaker;
 import com.itvillage.common.SampleData;
+import com.itvillage.utils.LogType;
 import com.itvillage.utils.Logger;
 import io.reactivex.Observable;
 
@@ -11,9 +12,9 @@ import io.reactivex.Observable;
 public class ObservableContainsExample {
     public static void main(String[] args) {
         Observable.fromArray(SampleData.carMakersDuplicated)
-                .doOnNext(Logger::don)
+                .doOnNext(data -> Logger.log(LogType.DO_ON_NEXT, data))
                 .contains(CarMaker.SAMSUNG)
                 .materialize()
-                .subscribe(Logger::on);
+                .subscribe(data -> Logger.log(LogType.ON_NEXT, data));
     }
 }

@@ -1,5 +1,6 @@
 package com.itvillage.chapter05.chapter0507;
 
+import com.itvillage.utils.LogType;
 import com.itvillage.utils.Logger;
 import com.itvillage.utils.NumberUtil;
 import com.itvillage.utils.TimeUtil;
@@ -17,7 +18,7 @@ public class ObservableTimeIntervalExample {
                 })
                 .timeInterval()
                 .subscribe(
-                        timed -> Logger.on("# 통지하는데 걸린 시간: " + timed.time() + "\t# 통지된 데이터: " + timed.value())
+                        timed -> Logger.log(LogType.ON_NEXT, "# 통지하는데 걸린 시간: " + timed.time() + "\t# 통지된 데이터: " + timed.value())
                 );
     }
 }

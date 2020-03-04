@@ -1,5 +1,6 @@
 package com.itvillage.chapter05.chapter0506;
 
+import com.itvillage.utils.LogType;
 import com.itvillage.utils.Logger;
 import com.itvillage.utils.TimeUtil;
 import io.reactivex.Observable;
@@ -17,7 +18,7 @@ public class ObservableRetryExample01 {
                                     try{
                                         result = num / i;
                                     }catch(ArithmeticException ex){
-                                        Logger.print("error: " + ex.getMessage());
+                                        Logger.log(LogType.PRINT, "error: " + ex.getMessage());
                                         throw ex;
                                     }
                                     return result;
@@ -25,9 +26,9 @@ public class ObservableRetryExample01 {
                                 .retry(5)
                                 .onErrorReturn(throwable -> -1L)
                 ).subscribe(
-                        Logger::on,
-                        Logger::oe,
-                        Logger::oc
+                        data -> Logger.log(LogType.ON_NEXT, data),
+                        error -> Logger.log(LogType.ON_ERROR, error),
+                        () -> Logger.log(LogType.ON_COMPLETE)
                 );
 
         TimeUtil.sleep(5000L);

@@ -1,5 +1,6 @@
 package com.itvillage.chapter05.chapter0501;
 
+import com.itvillage.utils.LogType;
 import com.itvillage.utils.Logger;
 
 import java.util.concurrent.CompletableFuture;
@@ -15,7 +16,7 @@ public class CarRepairShop {
     }
 
     private int calculateCarRepair(int brokens){
-        Logger.print("# 차량 수리비 계산 중................");
+        Logger.log(LogType.PRINT, "# 차량 수리비 계산 중................");
         delay();
         return brokens * 20000;
     }

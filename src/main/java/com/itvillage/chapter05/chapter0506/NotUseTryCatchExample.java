@@ -1,5 +1,6 @@
 package com.itvillage.chapter05.chapter0506;
 
+import com.itvillage.utils.LogType;
 import com.itvillage.utils.Logger;
 import com.itvillage.utils.TimeUtil;
 import io.reactivex.Observable;
@@ -13,7 +14,7 @@ public class NotUseTryCatchExample {
                     .map(num -> num / 0)
                     .subscribe(System.out::println);
         }catch (Exception e){
-            Logger.print("# 에러 처리가 필요: " + e.getCause());
+            Logger.log(LogType.PRINT, "# 에러 처리가 필요: " + e.getCause());
         }
     }
 }

@@ -2,6 +2,7 @@ package com.itvillage.chapter08;
 
 import com.itvillage.common.CarMaker;
 import com.itvillage.common.SampleData;
+import com.itvillage.utils.LogType;
 import com.itvillage.utils.Logger;
 import com.itvillage.utils.TimeUtil;
 import io.reactivex.Observable;
@@ -17,7 +18,7 @@ public class DoOnDisposeExample {
     public static void main(String[] args) {
         Observable.fromArray(SampleData.carMakers)
                 .zipWith(Observable.interval(300L, TimeUnit.MILLISECONDS), (carMaker, num) -> carMaker)
-                .doOnDispose(() -> Logger.dodp("# 생산자: 구독 해지 완료"))
+                .doOnDispose(() -> Logger.log(LogType.DO_ON_DISPOSE, "# 생산자: 구독 해지 완료"))
                 .subscribe(new Observer<CarMaker>() {
                     private Disposable disposable;
                     private long startTime;
@@ -29,21 +30,21 @@ public class DoOnDisposeExample {
 
                     @Override
                     public void onNext(CarMaker carMaker) {
-                        Logger.on(carMaker);
+                        Logger.log(LogType.ON_NEXT, carMaker);
                         if(TimeUtil.getCurrentTime() - startTime > 1000L){
-                            Logger.print("# 소비자: 구독 해지 , 1000L 초과");
+                            Logger.log(LogType.PRINT, "# 소비자: 구독 해지 , 1000L 초과");
                             disposable.dispose();
                         }
                     }
 
                     @Override
                     public void onError(Throwable error) {
-                        Logger.oe(error);
+                        Logger.log(LogType.ON_ERROR, error);
                     }
 
                     @Override
                     public void onComplete() {
-                        Logger.oc();
+                        Logger.log(LogType.ON_COMPLETE);
                     }
                 });
 

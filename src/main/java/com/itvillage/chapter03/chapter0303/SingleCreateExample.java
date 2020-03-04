@@ -1,6 +1,7 @@
 package com.itvillage.chapter03.chapter0303;
 
 import com.itvillage.utils.DateUtil;
+import com.itvillage.utils.LogType;
 import com.itvillage.utils.Logger;
 import io.reactivex.Single;
 import io.reactivex.SingleEmitter;
@@ -30,12 +31,12 @@ public class SingleCreateExample {
 
             @Override
             public void onSuccess(String data) {
-                Logger.osc("# 날짜시각: " + data);
+                Logger.log(LogType.ON_SUCCESS, "# 날짜시각: " + data);
             }
 
             @Override
             public void onError(Throwable error) {
-                Logger.oe(error);
+                Logger.log(LogType.ON_ERROR, error);
             }
         });
     }

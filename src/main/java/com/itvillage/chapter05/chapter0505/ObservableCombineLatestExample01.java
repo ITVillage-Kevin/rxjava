@@ -1,5 +1,6 @@
 package com.itvillage.chapter05.chapter0505;
 
+import com.itvillage.utils.LogType;
 import com.itvillage.utils.Logger;
 import com.itvillage.utils.TimeUtil;
 import io.reactivex.Observable;
@@ -30,7 +31,7 @@ public class ObservableCombineLatestExample01 {
                 observable1,
                 observable2,
                 (data1, data2) -> "data1: " + data1 + "\tdata2: " + data2)
-                .subscribe(Logger::on);
+                .subscribe(data -> Logger.log(LogType.ON_NEXT, data));
 
         TimeUtil.sleep(3000L);
     }

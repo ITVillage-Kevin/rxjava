@@ -1,6 +1,7 @@
 package com.itvillage.chapter05.chapter0508;
 
 import com.itvillage.common.SampleData;
+import com.itvillage.utils.LogType;
 import com.itvillage.utils.Logger;
 import com.itvillage.utils.TimeUtil;
 import io.reactivex.Observable;
@@ -19,18 +20,18 @@ public class ObservableAmbExample {
         List<Observable<Integer>> observables = Arrays.asList(
                 Observable.fromIterable(SampleData.salesOfBranchA)
                         .delay(200L, TimeUnit.MILLISECONDS)
-                        .doOnComplete(() -> Logger.doc("# branch A's sales")),
+                        .doOnComplete(() -> Logger.log(LogType.DO_ON_COMPLETE, "# branch A's sales")),
                 Observable.fromIterable(SampleData.salesOfBranchB)
                         .delay(300L, TimeUnit.MILLISECONDS)
-                        .doOnComplete(() -> Logger.doc("# branch B's sales")),
+                        .doOnComplete(() -> Logger.log(LogType.DO_ON_COMPLETE, "# branch B's sales")),
                 Observable.fromIterable(SampleData.salesOfBranchC)
                         .delay(500L, TimeUnit.MILLISECONDS)
-                        .doOnComplete(() -> Logger.doc("# branch C's sales"))
+                        .doOnComplete(() -> Logger.log(LogType.DO_ON_COMPLETE, "# branch C's sales"))
         );
 
         Observable.amb(observables)
-                .doOnComplete(() -> Logger.doc("# 완료"))
-                .subscribe(Logger::on);
+                .doOnComplete(() -> Logger.log(LogType.DO_ON_COMPLETE, "# 완료"))
+                .subscribe(data -> Logger.log(LogType.ON_NEXT, data));
 
         TimeUtil.sleep(1000L);
     }

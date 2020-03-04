@@ -1,5 +1,6 @@
 package com.itvillage.chapter05.chapter0506;
 
+import com.itvillage.utils.LogType;
 import com.itvillage.utils.Logger;
 import com.itvillage.utils.TimeUtil;
 import io.reactivex.Observable;
@@ -19,13 +20,13 @@ public class GeneralErrorHandleExample {
         Observable.just(5)
                 .flatMap(num -> Observable
                         .interval(200L, TimeUnit.MILLISECONDS)
-                        .doOnNext(Logger::don)
+                        .doOnNext(data -> Logger.log(LogType.DO_ON_NEXT, data))
                         .take(5)
                         .map(i -> num / i))
                 .subscribe(
-                        Logger::on,
-                        Logger::oe,
-                        Logger::oc
+                        data -> Logger.log(LogType.ON_NEXT, data),
+                        error -> Logger.log(LogType.ON_ERROR, error),
+                        () -> Logger.log(LogType.ON_COMPLETE)
                 );
 
         TimeUtil.sleep(1000L);

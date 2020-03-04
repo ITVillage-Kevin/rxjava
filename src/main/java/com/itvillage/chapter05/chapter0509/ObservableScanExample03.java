@@ -1,5 +1,6 @@
 package com.itvillage.chapter05.chapter0509;
 
+import com.itvillage.utils.LogType;
 import com.itvillage.utils.Logger;
 import io.reactivex.Observable;
 
@@ -10,11 +11,11 @@ import io.reactivex.Observable;
 public class ObservableScanExample03 {
     public static void main(String[] args) {
         Observable.just("a", "b", "c", "d", "e")
-                .doOnNext(Logger::don)
+                .doOnNext(data -> Logger.log(LogType.DO_ON_NEXT, data))
                 .scan((x, y) -> {
-                    Logger.print("# scan 입력 값 : " + x + ", " + y);
+                    Logger.log(LogType.PRINT, "# scan 입력 값 : " + x + ", " + y);
                     return "(" + x + ", " + y + ")";
                 })
-                .subscribe(result -> Logger.on("# 출력 결과: " + result));
+                .subscribe(result -> Logger.log(LogType.ON_NEXT, "# 출력 결과: " + result));
     }
 }

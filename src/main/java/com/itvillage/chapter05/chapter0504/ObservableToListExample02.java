@@ -2,6 +2,7 @@ package com.itvillage.chapter05.chapter0504;
 
 import com.itvillage.common.Car;
 import com.itvillage.common.SampleData;
+import com.itvillage.utils.LogType;
 import com.itvillage.utils.Logger;
 import io.reactivex.Observable;
 import io.reactivex.Single;
@@ -16,6 +17,6 @@ public class ObservableToListExample02 {
         Single<List<Car>> single = Observable.fromIterable(SampleData.carList)
                 .toList();
 
-        single.subscribe(carList -> Logger.on(carList));
+        single.subscribe(carList -> Logger.log(LogType.ON_NEXT, carList));
     }
 }

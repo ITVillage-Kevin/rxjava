@@ -1,6 +1,7 @@
 package com.itvillage.chapter07;
 
 import com.itvillage.common.SampleData;
+import com.itvillage.utils.LogType;
 import com.itvillage.utils.Logger;
 import com.itvillage.utils.TimeUtil;
 import io.reactivex.Observable;
@@ -24,10 +25,10 @@ public class SchedulerComputationExample {
                 (data1, data2, data3, hour) -> hour + "시: " + Collections.max(Arrays.asList(data1, data2, data3)));
 
         source.subscribeOn(Schedulers.computation())
-                .subscribe(Logger::on);
+                .subscribe(data -> Logger.log(LogType.ON_NEXT, data));
 
         source.subscribeOn(Schedulers.computation())
-                .subscribe(Logger::on);
+                .subscribe(data -> Logger.log(LogType.ON_NEXT, data));
 
         TimeUtil.sleep(500L);
     }

@@ -1,5 +1,6 @@
 package com.itvillage.chapter06;
 
+import com.itvillage.utils.LogType;
 import com.itvillage.utils.Logger;
 import io.reactivex.subjects.ReplaySubject;
 
@@ -9,13 +10,13 @@ public class ReplaySubjectExample01 {
         subject.onNext(3000);
         subject.onNext(2500);
 
-        subject.subscribe(price -> Logger.on("# 소비자 1 : " + price));
+        subject.subscribe(price -> Logger.log(LogType.ON_NEXT, "# 소비자 1 : " + price));
         subject.onNext(3500);
 
-        subject.subscribe(price -> Logger.on("# 소비자 2 : " + price));
+        subject.subscribe(price -> Logger.log(LogType.ON_NEXT, "# 소비자 2 : " + price));
         subject.onNext(3300);
 
-        subject.subscribe(price -> Logger.on("# 소비자 3 : " + price));
+        subject.subscribe(price -> Logger.log(LogType.ON_NEXT, "# 소비자 3 : " + price));
         subject.onNext(3400);
     }
 }

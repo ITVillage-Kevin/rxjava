@@ -1,5 +1,6 @@
 package com.itvillage.chapter05.chapter0507;
 
+import com.itvillage.utils.LogType;
 import com.itvillage.utils.Logger;
 import com.itvillage.utils.TimeUtil;
 import io.reactivex.Observable;
@@ -23,8 +24,8 @@ public class ObservableTimeOutExample {
                 })
                 .timeout(1200L, TimeUnit.MILLISECONDS)
                 .subscribe(
-                        Logger::on,
-                        Logger::oe
+                        data -> Logger.log(LogType.ON_NEXT, data),
+                        error -> Logger.log(LogType.ON_ERROR, error)
                 );
 
         TimeUtil.sleep(4000L);

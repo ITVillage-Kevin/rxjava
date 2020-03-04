@@ -1,5 +1,6 @@
 package com.itvillage.chapter03.chapter0302;
 
+import com.itvillage.utils.LogType;
 import com.itvillage.utils.Logger;
 import com.itvillage.utils.TimeUtil;
 import io.reactivex.Flowable;
@@ -15,14 +16,14 @@ public class BackpressureLatestExample {
          */
         Flowable.interval(1L, TimeUnit.MILLISECONDS)
                 .onBackpressureLatest()
-                .doOnNext(data -> Logger.don(data))
+                .doOnNext(data -> Logger.log(LogType.DO_ON_NEXT, data))
                 .observeOn(Schedulers.computation())
                 .subscribe(
                         data -> {
                             TimeUtil.sleep(50L);
-                            Logger.on(data);
+                            Logger.log(LogType.ON_NEXT, data);
                         },
-                        error -> Logger.oe(error)
+                        error -> Logger.log(LogType.ON_ERROR, error)
                 );
 
         TimeUtil.sleep(15500L);

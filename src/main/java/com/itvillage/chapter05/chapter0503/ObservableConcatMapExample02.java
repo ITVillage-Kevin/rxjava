@@ -1,5 +1,6 @@
 package com.itvillage.chapter05.chapter0503;
 
+import com.itvillage.utils.LogType;
 import com.itvillage.utils.Logger;
 import com.itvillage.utils.TimeUtil;
 import io.reactivex.Observable;
@@ -23,7 +24,7 @@ public class ObservableConcatMapExample02 {
                                 .map(row -> num + " * " + row + " = " + num * row)
                 )
                 .subscribe(
-                        Logger::on,
+                        data -> Logger.log(LogType.ON_NEXT, data),
                         error -> {},
                         () -> {
                             TimeUtil.end();

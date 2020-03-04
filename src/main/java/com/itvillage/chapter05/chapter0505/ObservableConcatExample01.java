@@ -1,5 +1,6 @@
 package com.itvillage.chapter05.chapter0505;
 
+import com.itvillage.utils.LogType;
 import com.itvillage.utils.Logger;
 import com.itvillage.utils.TimeUtil;
 import io.reactivex.Observable;
@@ -21,7 +22,7 @@ public class ObservableConcatExample01 {
                         .map(num -> num + 1000);
 
         Observable.concat(observable1, observable2)
-                .subscribe(Logger::on);
+                .subscribe(data -> Logger.log(LogType.ON_NEXT, data));
 
 
         TimeUtil.sleep(3500L);

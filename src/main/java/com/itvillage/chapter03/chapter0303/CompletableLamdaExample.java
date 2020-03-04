@@ -1,5 +1,6 @@
 package com.itvillage.chapter03.chapter0303;
 
+import com.itvillage.utils.LogType;
 import com.itvillage.utils.Logger;
 import com.itvillage.utils.TimeUtil;
 import io.reactivex.Completable;
@@ -14,15 +15,15 @@ public class CompletableLamdaExample {
             for(int i =0; i < 100; i++){
                 sum += i;
             }
-            Logger.cp("# 합계: " + sum);
+            Logger.log(LogType.PRINT, "# 합계: " + sum);
 
             emitter.onComplete();
         });
 
         completable.subscribeOn(Schedulers.computation())
                 .subscribe(
-                        () -> Logger.oc(),
-                        error -> Logger.oe(error)
+                        () -> Logger.log(LogType.ON_COMPLETE),
+                        error -> Logger.log(LogType.ON_ERROR, error)
                 );
 
         TimeUtil.sleep(100L);

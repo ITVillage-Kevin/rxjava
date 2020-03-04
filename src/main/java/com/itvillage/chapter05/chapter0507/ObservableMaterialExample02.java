@@ -1,5 +1,6 @@
 package com.itvillage.chapter05.chapter0507;
 
+import com.itvillage.utils.LogType;
 import com.itvillage.utils.Logger;
 import io.reactivex.Observable;
 import io.reactivex.schedulers.Schedulers;
@@ -21,7 +22,7 @@ public class ObservableMaterialExample02 {
                                 .map(notification -> {
                                     if (notification.isOnError()) {
                                         // 관리자에게 에러 발생을 알림
-                                        Logger.print("# API user 에러 발생!");
+                                        Logger.log(LogType.PRINT, "# API user 에러 발생!");
                                     }
                                     return notification;
                                 })
@@ -29,9 +30,9 @@ public class ObservableMaterialExample02 {
                                 .dematerialize(notification -> notification)
                 )
         ).subscribe(
-                Logger::on,
-                Logger::oe,
-                Logger::oc
+                data -> Logger.log(LogType.ON_NEXT, data),
+                error -> Logger.log(LogType.ON_ERROR, error),
+                () -> Logger.log(LogType.ON_COMPLETE)
         );
     }
 

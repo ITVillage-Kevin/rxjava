@@ -1,5 +1,6 @@
 package com.itvillage.chapter03.chapter0303;
 
+import com.itvillage.utils.LogType;
 import com.itvillage.utils.Logger;
 import com.itvillage.utils.TimeUtil;
 import io.reactivex.Completable;
@@ -19,7 +20,7 @@ public class CompletableCreateExample {
                 for(int i =0; i < 100; i++){
                     sum += i;
                 }
-                Logger.cp("# 합계: " + sum);
+                Logger.log(LogType.PRINT, "# 합계: " + sum);
 
                 emitter.onComplete();
             }
@@ -34,12 +35,12 @@ public class CompletableCreateExample {
 
             @Override
             public void onComplete() {
-                Logger.oc();
+                Logger.log(LogType.ON_COMPLETE);
             }
 
             @Override
             public void onError(Throwable error) {
-                Logger.oe(error);
+                Logger.log(LogType.ON_ERROR, error);
             }
         });
 

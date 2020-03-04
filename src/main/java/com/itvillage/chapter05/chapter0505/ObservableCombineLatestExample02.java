@@ -1,6 +1,7 @@
 package com.itvillage.chapter05.chapter0505;
 
 import com.itvillage.common.SampleData;
+import com.itvillage.utils.LogType;
 import com.itvillage.utils.Logger;
 import com.itvillage.utils.NumberUtil;
 import com.itvillage.utils.TimeUtil;
@@ -25,7 +26,7 @@ public class ObservableCombineLatestExample02 {
 
         Observable.combineLatest(observable1, observable2,
                 (temperature, humidity) -> "최신 온습도 데이터 - 온도: " + temperature + "도\t습도: " + humidity + "%")
-                .subscribe(Logger::on);
+                .subscribe(data -> Logger.log(LogType.ON_NEXT, data));
 
         TimeUtil.sleep(3000L);
     }

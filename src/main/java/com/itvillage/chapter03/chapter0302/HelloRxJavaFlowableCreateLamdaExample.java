@@ -1,5 +1,6 @@
 package com.itvillage.chapter03.chapter0302;
 
+import com.itvillage.utils.LogType;
 import com.itvillage.utils.Logger;
 import io.reactivex.BackpressureStrategy;
 import io.reactivex.Flowable;
@@ -24,9 +25,9 @@ public class HelloRxJavaFlowableCreateLamdaExample {
                 }, BackpressureStrategy.BUFFER);
 
         flowable.observeOn(Schedulers.computation())
-                .subscribe(data -> Logger.on(data),
-                    error -> Logger.oe(error),
-                    () -> Logger.oc(),
+                .subscribe(data -> Logger.log(LogType.ON_NEXT, data),
+                        error -> Logger.log(LogType.ON_ERROR, error),
+                    () -> Logger.log(LogType.ON_COMPLETE),
                     subscription -> subscription.request(Long.MAX_VALUE));
 
         Thread.sleep(500L);

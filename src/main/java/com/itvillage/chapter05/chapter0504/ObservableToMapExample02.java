@@ -1,5 +1,6 @@
 package com.itvillage.chapter05.chapter0504;
 
+import com.itvillage.utils.LogType;
 import com.itvillage.utils.Logger;
 import io.reactivex.Observable;
 import io.reactivex.Single;
@@ -17,6 +18,6 @@ public class ObservableToMapExample02 {
                     data -> data.split("-")[1]
                 );
 
-        single.subscribe(map -> Logger.on(map));
+        single.subscribe(map -> Logger.log(LogType.ON_NEXT, map));
     }
 }

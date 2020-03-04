@@ -1,5 +1,6 @@
 package com.itvillage.chapter05.chapter0501;
 
+import com.itvillage.utils.LogType;
 import com.itvillage.utils.Logger;
 import io.reactivex.Observable;
 import io.reactivex.ObservableEmitter;
@@ -28,17 +29,17 @@ public class ObservableCreateExample {
 
             @Override
             public void onNext(String data) {
-                Logger.on(data);
+                Logger.log(LogType.ON_NEXT, data);
             }
 
             @Override
             public void onError(Throwable error) {
-                Logger.oe(error);
+                Logger.log(LogType.ON_ERROR, error);
             }
 
             @Override
             public void onComplete() {
-                Logger.oc();
+                Logger.log(LogType.ON_COMPLETE);
             }
         });
 

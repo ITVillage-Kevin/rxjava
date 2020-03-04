@@ -1,5 +1,6 @@
 package com.itvillage.chapter05.chapter0506;
 
+import com.itvillage.utils.LogType;
 import com.itvillage.utils.Logger;
 import com.itvillage.utils.TimeUtil;
 import io.reactivex.Observable;
@@ -21,7 +22,7 @@ public class ObservableOnErrorReturnExample {
                         .map(i -> num / i)
                         .onErrorReturn(exception -> {
                             if(exception instanceof ArithmeticException)
-                                Logger.print("계산 처리 에러 발생: " + exception.getMessage());
+                                Logger.log(LogType.PRINT, "계산 처리 에러 발생: " + exception.getMessage());
 
                             return -1L;
                         })
@@ -29,12 +30,12 @@ public class ObservableOnErrorReturnExample {
                 .subscribe(
                         data -> {
                             if(data < 0)
-                                Logger.print("# 예외를 알리는 데이터: " + data);
+                                Logger.log(LogType.PRINT, "# 예외를 알리는 데이터: " + data);
                             else
-                                Logger.on(data);
+                                Logger.log(LogType.ON_NEXT, data);
                         },
-                        Logger::oe,
-                        Logger::oc
+                        error -> Logger.log(LogType.ON_ERROR, error),
+                        () -> Logger.log(LogType.ON_COMPLETE)
                 );
 
         TimeUtil.sleep(1000L);

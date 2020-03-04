@@ -1,5 +1,6 @@
 package com.itvillage.chapter05.chapter0507;
 
+import com.itvillage.utils.LogType;
 import com.itvillage.utils.Logger;
 import io.reactivex.Observable;
 
@@ -9,8 +10,8 @@ public class ObservableMaterialExample01 {
                 .materialize()
                 .subscribe(notification -> {
                     String notificationType = notification.isOnNext() ? "onNext()" : (notification.isOnError() ? "onError()" : "onComplete()");
-                    Logger.print("notification 타입: " + notificationType);
-                    Logger.on(notification.getValue());
+                    Logger.log(LogType.PRINT, "notification 타입: " + notificationType);
+                    Logger.log(LogType.ON_NEXT, notification.getValue());
                 });
     }
 }
