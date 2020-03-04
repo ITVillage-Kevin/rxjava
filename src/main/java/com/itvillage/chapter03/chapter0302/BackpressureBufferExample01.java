@@ -3,19 +3,25 @@ package com.itvillage.chapter03.chapter0302;
 import com.itvillage.utils.LogType;
 import com.itvillage.utils.Logger;
 import com.itvillage.utils.TimeUtil;
+import io.reactivex.BackpressureOverflowStrategy;
 import io.reactivex.Flowable;
 import io.reactivex.schedulers.Schedulers;
 
 import java.util.concurrent.TimeUnit;
-
 /**
- * 처음 채워진 버퍼의 데이터를 소비자가 모두 소비하면 버퍼를 비우지 않고,
- *              소비한 데이터를 해당 시점에 발행된 최신 데이터로 교체한다. 즉, 파기(DROP)하는 것이 아니라 overwriting 하는 것.
- */
-public class BackpressureLatestExample {
+   - 버퍼에 있는 데이터중 96개 정도의 데이터를 소비자에게 전달하면 전달한 개수만큼 버퍼를 비우고 다시 발행해서 버퍼에 담는다.
+
+   - DROP_LATEST 전략 : 버퍼가 가득 찬 시점에 가장 최근에 DROP 된 데이터를 기억해두었다가 버퍼를 비우게되면
+     기억해둔 데이터부터 버퍼에 담는다.
+*/
+public class BackpressureBufferExample01 {
     public static void main(String[] args){
+
         Flowable.interval(1L, TimeUnit.MILLISECONDS)
-                .onBackpressureLatest()
+                .onBackpressureBuffer(
+                        128,
+                        () -> Logger.log(LogType.PRINT, "# Overflow 발생!"),
+                        BackpressureOverflowStrategy.DROP_LATEST)
                 .doOnNext(data -> Logger.log(LogType.DO_ON_NEXT, data))
                 .observeOn(Schedulers.computation())
                 .subscribe(
