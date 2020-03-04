@@ -9,8 +9,8 @@ import io.reactivex.schedulers.Schedulers;
 import java.util.concurrent.TimeUnit;
 
 /**
- * 처음 채워진 버퍼의 데이터를 소비자가 모두 소비하면 버퍼를 비우지 않고,
- *              소비한 데이터를 해당 시점에 발행된 최신 데이터로 교체한다. 즉, 파기(DROP)하는 것이 아니라 overwriting 하는 것.
+ * 통지된 데이터로 채워진 버퍼의 데이터를 소비자가 모두 소비하면 버퍼 밖에서 대기중인 통지된 데이터 중에서
+ * 가장 나중에(최근에) 통지된 데이터부터 다시 버퍼에 채운다.
  */
 public class BackpressureLatestExample {
     public static void main(String[] args){
