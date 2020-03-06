@@ -10,12 +10,12 @@ import io.reactivex.schedulers.Schedulers;
  * 단위 테스트를 설명하기 위한 Sample Observable 클래스
  */
 public class SampleObservable {
-    public Observable<CarMaker> getCarMakerStream(){
+    public Observable<CarMaker> getCarMakerStream() {
         Observable<CarMaker> observable = Observable.fromArray(SampleData.carMakers);
         return observable;
     }
 
-    public Observable<Car> getCarStream(){
+    public Observable<Car> getCarStream() {
         return Observable
                 .fromIterable(SampleData.carList)
                 .subscribeOn(Schedulers.computation());
@@ -38,4 +38,12 @@ public class SampleObservable {
                 .fromIterable(SampleData.salesOfBranchC)
                 .subscribeOn(Schedulers.computation());
     }
+
+    public Observable<Integer> getSpeedOfSectionA() {
+        return Observable
+                .fromArray(SampleData.speedOfSectionA)
+                .subscribeOn(Schedulers.computation());
+    }
+
+
 }

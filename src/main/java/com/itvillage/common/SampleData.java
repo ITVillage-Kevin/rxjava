@@ -43,9 +43,9 @@ public class SampleData {
             );
 
     // A, B, C 구간의 차량 속도 데이터
-    public static final int[] speedOfSectionA = {100, 110, 115, 130, 160};
-    public static final int[] speedOfSectionB = {85, 90, 100, 110, 105, 113, 125};
-    public static final int[] speedOfSectionC = {98, 88, 111, 123, 155, 124, 136, 143};
+    public static final Integer[] speedOfSectionA = {100, 110, 115, 130, 160};
+    public static final Integer[] speedOfSectionB = {85, 90, 100, 110, 105, 113, 125};
+    public static final Integer[] speedOfSectionC = {98, 88, 111, 123, 155, 124, 136, 143};
 
     // 지점 A의 월별 매출
     public static final List<Integer> salesOfBranchA = Arrays.asList(
@@ -82,13 +82,13 @@ public class SampleData {
     );
 
     // 1시간 동안 서울의 온도 변화 데이터
-    public static int[] temperatureOfSeoul = {10, 13, 14, 12, 11, 9};
+    public static Integer[] temperatureOfSeoul = {10, 13, 14, 12, 11, 9};
 
     // 1시간 동안 서울의 습도 변화 데이터
-    public static int[] humidityOfSeoul = {45, 35, 33, 43, 32, 62};
+    public static Integer[] humidityOfSeoul = {45, 35, 33, 43, 32, 62};
 
 
-    public static Observable<String> getSpeedPerSection(String section, long interval, final int[] speedData){
+    public static Observable<String> getSpeedPerSection(String section, long interval, final Integer[] speedData){
         return Observable.interval(interval, TimeUnit.MILLISECONDS)
                 .take(speedData.length)
                 .map(Long::intValue)

@@ -6,6 +6,9 @@ import org.junit.Test;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.is;
 
+/**
+ * blockingGet을 사용한 통지 데이터 테스트 예제
+ */
 public class BlockingGetTest extends RxJavaTest {
     // A 지점의 월간 매출 합계 테스트
     @Test
