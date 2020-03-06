@@ -4,7 +4,6 @@ import org.junit.Test;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.greaterThan;
-import static org.hamcrest.Matchers.is;
 
 /**
  * blockingForEach를 사용해 통지된 데이터 전부를 테스트 한다.

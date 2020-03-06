@@ -45,5 +45,12 @@ public class SampleObservable {
                 .subscribeOn(Schedulers.computation());
     }
 
+    public  Observable<Integer> getTemperatureOfSeoul() {
+        return Observable
+                .fromArray(SampleData.temperatureOfSeoul)
+                .subscribeOn(Schedulers.computation());
+    }
+
+
 
 }
