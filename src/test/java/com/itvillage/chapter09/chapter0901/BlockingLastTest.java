@@ -4,8 +4,8 @@ import com.itvillage.common.Car;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
+import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.MatcherAssert.assertThat;
-import static org.hamcrest.Matchers.is;
 
 /**
  * blockingLast를 사용한 통지된 마지막 데이터를 테스트하는 예제

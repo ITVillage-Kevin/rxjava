@@ -2,8 +2,8 @@ package com.itvillage.chapter09.chapter0901;
 
 import org.junit.Test;
 
+import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.MatcherAssert.assertThat;
-import static org.hamcrest.Matchers.greaterThan;
 
 /**
  * blockingForEach를 사용해 통지된 데이터 전부를 테스트 한다.
@@ -14,7 +14,7 @@ public class blockingForEachTest extends RxJavaTest {
     public void getSpeedOfSectionAForEachTest() {
         sampleObservable.getSpeedOfSectionA()
                 .filter(speed -> speed > 110)
-                .blockingForEach(speed -> assertThat(speed, greaterThan(110)));
+                .blockingForEach(speed -> assertThat(speed, is(speed > 110)));
 
     }
 }
