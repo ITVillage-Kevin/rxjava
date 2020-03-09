@@ -4,8 +4,8 @@ import io.reactivex.Observable;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
+import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.MatcherAssert.assertThat;
-import static org.hamcrest.Matchers.is;
 
 /**
  * blockingSingle을 사용한 통지된 첫번째 데이터를 테스트하는 예제

@@ -5,8 +5,8 @@ import io.reactivex.Observable;
 import io.reactivex.Single;
 import org.junit.Test;
 
+import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.MatcherAssert.assertThat;
-import static org.hamcrest.Matchers.is;
 
 /**
  * blockingGet을 사용한 통지 데이터 테스트 예제

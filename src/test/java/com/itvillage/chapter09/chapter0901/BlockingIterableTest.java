@@ -6,9 +6,8 @@ import org.junit.Test;
 
 import java.util.Iterator;
 
+import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.MatcherAssert.assertThat;
-import static org.hamcrest.Matchers.is;
-
 /**
  * blogkingIterable을 사용한 통지 데이터 테스트 예제
  */
