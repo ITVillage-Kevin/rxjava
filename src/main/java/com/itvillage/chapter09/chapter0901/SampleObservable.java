@@ -10,8 +10,18 @@ import io.reactivex.schedulers.Schedulers;
  * 단위 테스트를 설명하기 위한 Sample Observable 클래스
  */
 public class SampleObservable {
+    public Observable<CarMaker> getDuplicatedCarMakerStream() {
+        Observable<CarMaker> observable = Observable.fromArray(SampleData.carMakersDuplicated)
+                .subscribeOn(Schedulers.computation());
+
+        return observable;
+    }
+
     public Observable<CarMaker> getCarMakerStream() {
-        Observable<CarMaker> observable = Observable.fromArray(SampleData.carMakers);
+        Observable<CarMaker> observable =
+                Observable.fromArray(SampleData.carMakers)
+                        .subscribeOn(Schedulers.computation());
+
         return observable;
     }
 

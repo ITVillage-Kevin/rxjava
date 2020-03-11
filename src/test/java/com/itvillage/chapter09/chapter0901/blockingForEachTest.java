@@ -2,7 +2,7 @@ package com.itvillage.chapter09.chapter0901;
 
 import org.junit.Test;
 
-import static org.hamcrest.CoreMatchers.is;
+import static org.hamcrest.Matchers.greaterThan;
 import static org.hamcrest.MatcherAssert.assertThat;
 
 /**
@@ -14,7 +14,7 @@ public class blockingForEachTest extends RxJavaTest {
     public void getSpeedOfSectionAForEachTest() {
         sampleObservable.getSpeedOfSectionA()
                 .filter(speed -> speed > 110)
-                .blockingForEach(speed -> assertThat(speed, is(speed > 110)));
+                .blockingForEach(speed -> assertThat(speed, greaterThan(110)));
 
     }
 }

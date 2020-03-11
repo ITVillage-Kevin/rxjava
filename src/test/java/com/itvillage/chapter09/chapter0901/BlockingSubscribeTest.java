@@ -15,9 +15,7 @@ public class BlockingSubscribeTest extends RxJavaTest {
         Calculator calculator = new Calculator();
 
         sampleObservable.getSalesOfBranchA()
-                .blockingSubscribe(data -> {
-                    calculator.setSum(data);
-                });
+                .blockingSubscribe(data -> calculator.setSum(data));
 
         assertThat(calculator.getSum(), is(326_000_000));
     }
