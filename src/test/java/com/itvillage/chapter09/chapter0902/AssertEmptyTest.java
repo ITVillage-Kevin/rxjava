@@ -11,7 +11,7 @@ import java.util.concurrent.TimeUnit;
 /**
  * assertEmpty를 사용하여 해당 시점까지 통지된 데이터가 있는지 검증하는 예제
  */
-public class AssertEmptyTest01 extends RxJavaTest {
+public class AssertEmptyTest extends RxJavaTest {
     // 테스트 실패 예제
     @Test
     public void getCarStreamEmptyFailTest(){

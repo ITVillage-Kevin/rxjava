@@ -11,6 +11,7 @@ public enum LogType {
     DO_ON_COMPLETE("doOnComplete()"),
     DO_ON_EACH("doOnEach()"),
     DO_ON_DISPOSE("doOnDispose()"),
+    DO_ON_ERROR("donOnError()"),
     PRINT("print()");
 
     private String logType;
