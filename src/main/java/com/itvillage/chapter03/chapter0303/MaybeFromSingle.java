@@ -6,7 +6,7 @@ import com.itvillage.utils.Logger;
 import io.reactivex.Maybe;
 import io.reactivex.Single;
 
-public class MaybeToSingle {
+public class MaybeFromSingle {
     public static void main(String[] args){
         Single<String> single = Single.just(DateUtil.getNowDate());
         Maybe.fromSingle(single)

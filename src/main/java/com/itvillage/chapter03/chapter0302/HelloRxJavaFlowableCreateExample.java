@@ -22,11 +22,11 @@ public class HelloRxJavaFlowableCreateExample {
                             if (emitter.isCancelled())
                                 return;
 
-                            // 데이터 발행
+                            // 데이터 통지
                             emitter.onNext(data);
                         }
 
-                        // 데이터 발행 완료를 알린다
+                        // 데이터 통지 완료를 알린다
                         emitter.onComplete();
                     }
                 }, BackpressureStrategy.BUFFER); // 구독자의 처리가 늦을 경우 데이터를 버퍼에 담아두는 설정.

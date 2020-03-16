@@ -14,6 +14,9 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.logging.SimpleFormatter;
 
+/**
+ * Single 클래스를 사용하여 현재 날짜와 시각을 통지하는 예제
+ */
 public class SingleCreateExample {
     public static void main(String[] args){
         Single<String> single = Single.create(new SingleOnSubscribe<String>() {

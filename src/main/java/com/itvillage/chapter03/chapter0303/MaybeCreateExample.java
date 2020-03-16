@@ -9,14 +9,17 @@ import io.reactivex.MaybeObserver;
 import io.reactivex.MaybeOnSubscribe;
 import io.reactivex.disposables.Disposable;
 
+/**
+ * Maybe 클래스를 이용하여 데이터를 통지하는 예제
+ */
 public class MaybeCreateExample {
     public static void main(String[] args){
         Maybe<String> maybe = Maybe.create(new MaybeOnSubscribe<String>() {
             @Override
             public void subscribe(MaybeEmitter<String> emitter) throws Exception {
-                emitter.onSuccess(DateUtil.getNowDate());
-                // TODO 데이터를 통지하지 않고, 종료할 때의 설명 필요
-//                emitter.onComplete();
+//                emitter.onSuccess(DateUtil.getNowDate());
+
+                emitter.onComplete();
             }
         });
 
