@@ -7,7 +7,7 @@ import java.util.function.Consumer;
 /**
  * 함수 디스크립터의 Consumer 예제
  */
-public class FunctionalDescriptorConsumer {
+public class  FunctionalDescriptorConsumer {
     public static void main(String[] args) {
         List<Integer> numbers = Arrays.asList(1, 6, 10, 30, 65, 70, 102);
         forEachPrint(numbers, n -> System.out.println(n));

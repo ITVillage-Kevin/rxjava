@@ -21,11 +21,13 @@ public class FunctionalInterfaceToLamdaExample {
                 new Car(CarMaker.SSANGYOUNG, CarType.SUV, "티볼리", 23000000, true)
         );
 
-        List<Car> carsFilteredByPrice = CarFilter.filterCarByCustomPredicate(cars, (Car car) -> car.getCarPrice() > 30000000);
+        List<Car> carsFilteredByPrice =
+                CarFilter.filterCarByCustomPredicate(cars, (Car car) -> car.getCarPrice() > 30000000);
         for(Car car : carsFilteredByPrice)
             System.out.println("차 이름: " + car.getCarName() + ", 가격: " + car.getCarPrice());
 
-        List<Car> carsFilteredByCarType = CarFilter.filterCarByCustomPredicate(cars, car -> car.getCarType().equals(CarType.SUV));
+        List<Car> carsFilteredByCarType =
+                CarFilter.filterCarByCustomPredicate(cars, car -> car.getCarType().equals(CarType.SUV));
         for(Car car : carsFilteredByCarType)
             System.out.println("차 이름: " + car.getCarName() + ", 차종: " + car.getCarType());
     }
