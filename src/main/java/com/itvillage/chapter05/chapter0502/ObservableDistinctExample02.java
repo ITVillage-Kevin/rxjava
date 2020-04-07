@@ -2,6 +2,8 @@ package com.itvillage.chapter05.chapter0502;
 
 import com.itvillage.common.CarMaker;
 import com.itvillage.common.SampleData;
+import com.itvillage.utils.LogType;
+import com.itvillage.utils.Logger;
 import io.reactivex.Observable;
 
 public class ObservableDistinctExample02 {
@@ -9,6 +11,6 @@ public class ObservableDistinctExample02 {
         Observable.fromArray(SampleData.carMakersDuplicated)
                 .distinct()
                 .filter(carMaker -> carMaker == CarMaker.SSANGYOUNG)
-                .subscribe(System.out::println);
+                .subscribe(carMaker -> Logger.log(LogType.ON_NEXT, carMaker));
     }
 }

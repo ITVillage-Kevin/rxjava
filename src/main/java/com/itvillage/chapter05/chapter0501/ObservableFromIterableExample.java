@@ -1,5 +1,7 @@
 package com.itvillage.chapter05.chapter0501;
 
+import com.itvillage.utils.LogType;
+import com.itvillage.utils.Logger;
 import io.reactivex.Observable;
 
 import java.util.Arrays;
@@ -10,6 +12,6 @@ public class ObservableFromIterableExample {
         List<String> countries = Arrays.asList("Korea", "Canada", "USA", "Italy");
 
         Observable.fromIterable(countries)
-                .subscribe(System.out::println);
+                .subscribe(country -> Logger.log(LogType.ON_NEXT, country));
     }
 }

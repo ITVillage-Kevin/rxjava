@@ -19,12 +19,12 @@ public class ObservableDeferExample {
 
         Observable<LocalTime> observableJust = Observable.just(LocalTime.now());
 
-        observable.subscribe(time -> Logger.log(LogType.PRINT, " # defer() 구독자 1의 구독 시간: " + time));
-        observableJust.subscribe(time -> Logger.log(LogType.PRINT, " # just() 구독자 1의 구독 시간: " + time));
+        observable.subscribe(time -> Logger.log(LogType.PRINT, " # defer() 구독1의 구독 시간: " + time));
+        observableJust.subscribe(time -> Logger.log(LogType.PRINT, " # just() 구독1의 구독 시간: " + time));
 
         Thread.sleep(3000);
 
-        observable.subscribe(time -> Logger.log(LogType.PRINT, " # defer() 구독자 1의 구독 시간: " + time));
-        observableJust.subscribe(time -> Logger.log(LogType.PRINT, " # just() 구독자 1의 구독 시간: " + time));
+        observable.subscribe(time -> Logger.log(LogType.PRINT, " # defer() 구독2의 구독 시간: " + time));
+        observableJust.subscribe(time -> Logger.log(LogType.PRINT, " # just() 구독자2의 구독 시간: " + time));
     }
 }
