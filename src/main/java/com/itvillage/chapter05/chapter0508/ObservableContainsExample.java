@@ -14,7 +14,6 @@ public class ObservableContainsExample {
         Observable.fromArray(SampleData.carMakersDuplicated)
                 .doOnNext(data -> Logger.log(LogType.DO_ON_NEXT, data))
                 .contains(CarMaker.SAMSUNG)
-                .materialize()
                 .subscribe(data -> Logger.log(LogType.ON_NEXT, data));
     }
 }

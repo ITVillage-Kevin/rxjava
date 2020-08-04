@@ -17,11 +17,15 @@ public class ObservableGroupByExample02 {
                 Observable.fromIterable(SampleData.carList).groupBy(Car::getCarMaker);
 
         observable.subscribe(
-                groupedObservable -> groupedObservable.filter(car -> groupedObservable.getKey().equals(CarMaker.CHEVROLET))
-                        .subscribe(
-                                car -> Logger.log(LogType.PRINT, "Group: " + groupedObservable.getKey() + "\t Car name: " + car.getCarName()
-                        )
-                )
+                groupedObservable ->
+                        groupedObservable
+                                .filter(car -> groupedObservable.getKey().equals(CarMaker.CHEVROLET))
+                                .subscribe(
+                                        car -> Logger.log(
+                                                LogType.PRINT, "Group: "
+                                                        + groupedObservable.getKey()
+                                                        + "\t Car name: " + car.getCarName())
+                                )
         );
 
     }

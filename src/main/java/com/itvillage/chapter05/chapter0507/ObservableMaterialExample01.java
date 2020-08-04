@@ -9,7 +9,8 @@ public class ObservableMaterialExample01 {
         Observable.just(1, 2, 3, 4, 5, 6)
                 .materialize()
                 .subscribe(notification -> {
-                    String notificationType = notification.isOnNext() ? "onNext()" : (notification.isOnError() ? "onError()" : "onComplete()");
+                    String notificationType =
+                            notification.isOnNext() ? "onNext()" : (notification.isOnError() ? "onError()" : "onComplete()");
                     Logger.log(LogType.PRINT, "notification 타입: " + notificationType);
                     Logger.log(LogType.ON_NEXT, notification.getValue());
                 });

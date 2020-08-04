@@ -8,7 +8,7 @@ import java.util.Arrays;
 import java.util.List;
 
 /**
- * Observable이 배출한 항목에 함수를 적용하여 배출된 값을 변환시킨다.
+ * Observable이 통지한 항목에 함수를 적용하여 통지된 값을 변환시킨다.
  */
 public class ObservableMapExample01 {
     public static void main(String[] args){

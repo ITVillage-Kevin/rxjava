@@ -12,7 +12,7 @@ import java.util.Map;
  */
 public class ObservableToMapExample02 {
     public static void main(String[] args) {
-        Single<Map<String, String>> single = Observable.just("a-Alpha", "b-Brave", "c-Charlie", "e-Echo")
+        Single<Map<String, String>> single = Observable.just("a-Alpha", "b-Bravo", "c-Charlie", "e-Echo")
                 .toMap(
                     data -> data.split("-")[0],
                     data -> data.split("-")[1]

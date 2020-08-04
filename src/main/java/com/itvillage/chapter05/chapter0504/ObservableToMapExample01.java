@@ -13,7 +13,7 @@ import java.util.Map;
 public class ObservableToMapExample01 {
     public static void main(String[] args) {
         Single<Map<String, String>> single =
-                Observable.just("a-Alpha", "b-Brave", "c-Charlie", "e-Echo")
+                Observable.just("a-Alpha", "b-Bravo", "c-Charlie", "e-Echo")
                         .toMap(data -> data.split("-")[0]); // 반환값은 Map의 key가 된다.
 
         single.subscribe(map -> Logger.log(LogType.ON_NEXT, map));

@@ -14,11 +14,14 @@ import io.reactivex.observables.GroupedObservable;
 public class ObservableGroupByExample01 {
     public static void main(String[] args) {
         Observable<GroupedObservable<CarMaker, Car>> observable =
-                Observable.fromIterable(SampleData.carList).groupBy(Car::getCarMaker);
+                Observable.fromIterable(SampleData.carList).groupBy(car -> car.getCarMaker());
 
         observable.subscribe(
                 groupedObservable -> groupedObservable.subscribe(
-                        car -> Logger.log(LogType.ON_NEXT, "Group: " + groupedObservable.getKey() + "\t Car name: " + car.getCarName())
+                        car -> Logger.log(
+                                LogType.ON_NEXT, "Group: " +
+                                        groupedObservable.getKey() +
+                                        "\t Car name: " + car.getCarName())
                 )
         );
 

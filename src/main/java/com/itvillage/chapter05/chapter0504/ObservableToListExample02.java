@@ -14,9 +14,8 @@ import java.util.List;
  */
 public class ObservableToListExample02 {
     public static void main(String[] args) {
-        Single<List<Car>> single = Observable.fromIterable(SampleData.carList)
-                .toList();
-
-        single.subscribe(carList -> Logger.log(LogType.ON_NEXT, carList));
+        Observable.fromIterable(SampleData.carList)
+                .toList()
+                .subscribe(carList -> Logger.log(LogType.ON_NEXT, carList));
     }
 }

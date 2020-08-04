@@ -9,8 +9,9 @@ import io.reactivex.Observable;
  */
 public class ObservableDefaultIfEmptyExample {
     public static void main(String[] args) {
-        Observable.empty()
-                .defaultIfEmpty("There is no item.")
+        Observable.just(1, 2, 3, 4, 5)
+                .filter(num -> num > 10)
+                .defaultIfEmpty(10)
                 .subscribe(data -> Logger.log(LogType.ON_NEXT, data));
     }
 }

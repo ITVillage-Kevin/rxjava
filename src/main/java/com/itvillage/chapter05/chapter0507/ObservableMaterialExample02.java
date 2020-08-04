@@ -2,6 +2,7 @@ package com.itvillage.chapter05.chapter0507;
 
 import com.itvillage.utils.LogType;
 import com.itvillage.utils.Logger;
+import com.itvillage.utils.TimeUtil;
 import io.reactivex.Observable;
 import io.reactivex.schedulers.Schedulers;
 
@@ -15,7 +16,7 @@ public class ObservableMaterialExample02 {
     public static void main(String[] args) {
         Observable.concatEager(
                 Observable.just(
-                        getDBUser(),
+                        getDBUser().subscribeOn(Schedulers.io()),
                         getAPIUser()
                                 .subscribeOn(Schedulers.io())
                                 .materialize()
@@ -34,6 +35,8 @@ public class ObservableMaterialExample02 {
                 error -> Logger.log(LogType.ON_ERROR, error),
                 () -> Logger.log(LogType.ON_COMPLETE)
         );
+
+        TimeUtil.sleep(1000L);
     }
 
     private static Observable<String> getDBUser() {

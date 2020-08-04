@@ -14,6 +14,7 @@ import java.util.concurrent.TimeUnit;
  */
 public class ObservableSwitchMapExample02 {
     public static void main(String[] args) {
+        TimeUtil.start();
         Searcher searcher = new Searcher();
         // 사용자가 입력하는 검색어라고 가정한다.
         final List<String> keywords = Arrays.asList("M", "Ma", "Mal", "Malay");
@@ -25,11 +26,19 @@ public class ObservableSwitchMapExample02 {
 
                     return Observable.just(searcher.search(keyword))
                             .doOnNext(notUse -> System.out.println("================================================================="))
-                            .delay(300L, TimeUnit.MILLISECONDS);
+                            .delay(1000L, TimeUnit.MILLISECONDS);
                 })
                 .flatMap(resultList -> Observable.fromIterable(resultList))
-                .subscribe(data -> Logger.log(LogType.ON_NEXT, data));
+                .subscribe(
+                        data -> Logger.log(LogType.ON_NEXT, data),
+                        error -> {},
+                        () -> {
+                            TimeUtil.end();
+                            TimeUtil.takeTime();
+                        }
+                );
 
-        TimeUtil.sleep(2000L);
+
+        TimeUtil.sleep(6000L);
     }
 }

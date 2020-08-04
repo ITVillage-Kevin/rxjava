@@ -7,7 +7,7 @@ import io.reactivex.Observable;
 
 import java.util.concurrent.TimeUnit;
 
-public class NotUseTryCatchExample {
+public class CanNotUseTryCatchExample {
     public static void main(String[] args) {
         try{
             Observable.just(2)
