@@ -10,11 +10,8 @@ import io.reactivex.Observable;
 public class ObservableReduceExample03 {
     public static void main(String[] args) {
         Observable.just("a", "b", "c", "d", "e")
-                .doOnNext(data -> Logger.log(LogType.DO_ON_NEXT, data))
-                .reduce((x, y) -> {
-                    Logger.log(LogType.PRINT, "# reduce 입력 값 : " + x + ", " + y);
-                    return "(" + x + ", " + y + ")";
-                })
+//                .doOnNext(data -> Logger.log(LogType.DO_ON_NEXT, data))
+                .reduce((x, y) -> "(" + x + ", " + y + ")")
                 .subscribe(data -> Logger.log(LogType.ON_NEXT, data));
     }
 }

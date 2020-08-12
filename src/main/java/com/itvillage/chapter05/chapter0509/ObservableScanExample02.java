@@ -11,11 +11,8 @@ import io.reactivex.Observable;
 public class ObservableScanExample02 {
     public static void main(String[] args) {
         Observable.just(1, 2, 3, 4, 5, 6, 7, 8, 9, 10)
-                .doOnNext(data -> Logger.log(LogType.DO_ON_NEXT, data))
-                .scan(0, (x, y) -> {
-                    Logger.log(LogType.PRINT, "# scan 입력 값 : " + x + ", " + y);
-                    return x + y;
-                })
+//                .doOnNext(data -> Logger.log(LogType.DO_ON_NEXT, data))
+                .scan(0, (x, y) -> x + y)
                 .subscribe(data -> Logger.log(LogType.ON_NEXT, data));
     }
 }

@@ -10,7 +10,7 @@ import io.reactivex.Observable;
 public class ObservableReduceExample02 {
     public static void main(String[] args) {
         Observable.just(1, 2, 3, 4, 5, 6, 7, 8, 9, 10)
-                .doOnNext(data -> Logger.log(LogType.DO_ON_NEXT, data))
+//                .doOnNext(data -> Logger.log(LogType.DO_ON_NEXT, data))
                 .reduce(0, (x, y) -> {
                     Logger.log(LogType.PRINT, "# reduce 입력 값 : " + x + ", " + y);
                     return x + y;
