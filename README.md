@@ -1,2 +1,2 @@
 This is RxJava for Kevin's IT Village.
-This includes various examples about RxJava.
+This includes various examples for RxJava.
