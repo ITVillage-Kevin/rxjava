@@ -17,21 +17,21 @@ import java.util.concurrent.TimeUnit;
 public class BackpressureBufferExample01 {
     public static void main(String[] args){
 
-        Flowable.interval(1L, TimeUnit.MILLISECONDS)
+        Flowable.interval(300L, TimeUnit.MILLISECONDS)
                 .onBackpressureBuffer(
-                        128,
-                        () -> Logger.log(LogType.PRINT, "# Overflow 발생!"),
+                        1,
+                        () -> Logger.log(LogType.PRINT, ""),
                         BackpressureOverflowStrategy.DROP_LATEST)
-                .doOnNext(data -> Logger.log(LogType.DO_ON_NEXT, data))
-                .observeOn(Schedulers.computation())
+//                .doOnNext(data -> Logger.log(LogType.DO_ON_NEXT, data))
+                .observeOn(Schedulers.computation(), false, 1)
                 .subscribe(
                         data -> {
-                            TimeUtil.sleep(5L);
+                            TimeUtil.sleep(1000L);
                             Logger.log(LogType.ON_NEXT, data);
                         },
                         error -> Logger.log(LogType.ON_ERROR, error)
                 );
 
-        TimeUtil.sleep(1000L);
+        TimeUtil.sleep(7000L);
     }
 }
