@@ -12,7 +12,9 @@ import java.util.concurrent.TimeUnit;
  */
 public class ObservableIntervalExample {
     public static void main(String[] args){
-        Observable.interval(0L, 1000L, TimeUnit.MILLISECONDS)
+        System.out.println("# start : " +TimeUtil.getCurrentTimeFormatted());
+
+        Observable.interval(1000L, TimeUnit.MILLISECONDS)
                 .map(num -> num + " count")
                 .subscribe(data -> Logger.log(LogType.ON_NEXT, data));
 

@@ -12,7 +12,7 @@ import java.util.concurrent.TimeUnit;
  */
 public class ObservableSwitchMapExample01 {
     public static void main(String[] args) throws InterruptedException {
-        TimeUtil.start();
+        System.out.println("# start : " +TimeUtil.getCurrentTimeFormatted());
         Observable.interval(100L, TimeUnit.MILLISECONDS)
                 .take(4)
                 .skip(2)
