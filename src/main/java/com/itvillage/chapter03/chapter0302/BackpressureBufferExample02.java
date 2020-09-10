@@ -10,20 +10,19 @@ import io.reactivex.schedulers.Schedulers;
 import java.util.concurrent.TimeUnit;
 
 /**
-   - 버퍼에 있는 데이터중 96개 정도의 데이터를 소비자에게 전달하면 전달한 개수만큼 버퍼를 비우고 다시 발행해서 버퍼에 담는다.
-
-   - DROP_OLDEST 전략 : 버퍼가 가득 찬 시점에 가장 나중에 DROP 된 데이터를 기억해두었다가 버퍼를 비우게되면
-     기억해둔 데이터부터 버퍼에 담는다.
+   - DROP_OLDEST 전략 : 생산자쪽에서 데이터 통지 시점에 버퍼가 가득 차있으면 버퍼내에 있는 데이터 중에서 가장 먼저(OLDEST) 버퍼
+ * 안에 들어온 데이터를 삭제하고 버퍼 밖에서 대기하는 데이터를 채운다.
 */
 public class BackpressureBufferExample02 {
     public static void main(String[] args){
 
-        Flowable.interval(200L, TimeUnit.MILLISECONDS)
+        Flowable.interval(300L, TimeUnit.MILLISECONDS)
+                .doOnNext(data -> Logger.log("#inverval doOnNext()", data))
                 .onBackpressureBuffer(
                         1,
                         () -> Logger.log(LogType.PRINT, ""),
                         BackpressureOverflowStrategy.DROP_OLDEST)
-//                .doOnNext(data -> Logger.log(LogType.DO_ON_NEXT, data))
+                .doOnNext(data -> Logger.log("#onBackpressureBuffer doOnNext()", data))
                 .observeOn(Schedulers.computation(), false, 1)
                 .subscribe(
                         data -> {
@@ -33,6 +32,6 @@ public class BackpressureBufferExample02 {
                         error -> Logger.log(LogType.ON_ERROR, error)
                 );
 
-        TimeUtil.sleep(4000L);
+        TimeUtil.sleep(2800L);
     }
 }
