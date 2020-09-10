@@ -15,12 +15,12 @@ import java.util.concurrent.TimeUnit;
 */
 public class BackpressureBufferExample02 {
     public static void main(String[] args){
-
+        System.out.println("# start : " +TimeUtil.getCurrentTimeFormatted());
         Flowable.interval(300L, TimeUnit.MILLISECONDS)
                 .doOnNext(data -> Logger.log("#inverval doOnNext()", data))
                 .onBackpressureBuffer(
-                        1,
-                        () -> Logger.log(LogType.PRINT, ""),
+                        2,
+                        () -> Logger.log("overflow!"),
                         BackpressureOverflowStrategy.DROP_OLDEST)
                 .doOnNext(data -> Logger.log("#onBackpressureBuffer doOnNext()", data))
                 .observeOn(Schedulers.computation(), false, 1)
@@ -32,6 +32,6 @@ public class BackpressureBufferExample02 {
                         error -> Logger.log(LogType.ON_ERROR, error)
                 );
 
-        TimeUtil.sleep(2800L);
+        TimeUtil.sleep(2500L);
     }
 }

@@ -14,18 +14,19 @@ import java.util.concurrent.TimeUnit;
  */
 public class BackpressureLatestExample {
     public static void main(String[] args){
-        Flowable.interval(1L, TimeUnit.MILLISECONDS)
+        Flowable.interval(300L, TimeUnit.MILLISECONDS)
+                .doOnNext(data -> Logger.log("#inverval doOnNext()", data))
                 .onBackpressureLatest()
-                .doOnNext(data -> Logger.log(LogType.DO_ON_NEXT, data))
-                .observeOn(Schedulers.computation())
+                .doOnNext(data -> Logger.log("#onBackpressureLatest doOnNext()", data))
+                .observeOn(Schedulers.computation(), false, 3)
                 .subscribe(
                         data -> {
-                            TimeUtil.sleep(5L);
+                            TimeUtil.sleep(1000L);
                             Logger.log(LogType.ON_NEXT, data);
                         },
                         error -> Logger.log(LogType.ON_ERROR, error)
                 );
 
-        TimeUtil.sleep(1000L);
+        TimeUtil.sleep(5500L);
     }
 }

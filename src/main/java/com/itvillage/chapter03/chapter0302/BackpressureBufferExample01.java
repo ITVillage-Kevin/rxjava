@@ -20,7 +20,7 @@ public class BackpressureBufferExample01 {
         Flowable.interval(300L, TimeUnit.MILLISECONDS)
                 .doOnNext(data -> Logger.log("#inverval doOnNext()", data))
                 .onBackpressureBuffer(
-                        1,
+                        2,
                         () -> Logger.log("overflow!"),
                         BackpressureOverflowStrategy.DROP_LATEST)
                 .doOnNext(data -> Logger.log("#onBackpressureBuffer doOnNext()", data))
@@ -33,6 +33,6 @@ public class BackpressureBufferExample01 {
                         error -> Logger.log(LogType.ON_ERROR, error)
                 );
 
-        TimeUtil.sleep(2800L);
+        TimeUtil.sleep(4500L);
     }
 }
