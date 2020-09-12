@@ -16,9 +16,8 @@ public class BackpressureDropExample {
     public static void main(String[] args){
         Flowable.interval(300L, TimeUnit.MILLISECONDS)
                 .doOnNext(data -> Logger.log("#inverval doOnNext()", data))
-                .onBackpressureDrop(dropData -> Logger.log(LogType.PRINT, "오버플로우 발생! - " + dropData + " Drop!"))
-                .doOnNext(data -> Logger.log("#onBackpressureDrop doOnNext()", data))
-                .observeOn(Schedulers.computation(), false, 3)
+                .onBackpressureDrop(dropData -> Logger.log(LogType.PRINT, dropData + " Drop!"))
+                .observeOn(Schedulers.computation(), false, 1)
                 .subscribe(
                         data -> {
                             TimeUtil.sleep(1000L);

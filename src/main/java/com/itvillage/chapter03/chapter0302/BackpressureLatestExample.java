@@ -17,8 +17,7 @@ public class BackpressureLatestExample {
         Flowable.interval(300L, TimeUnit.MILLISECONDS)
                 .doOnNext(data -> Logger.log("#inverval doOnNext()", data))
                 .onBackpressureLatest()
-                .doOnNext(data -> Logger.log("#onBackpressureLatest doOnNext()", data))
-                .observeOn(Schedulers.computation(), false, 3)
+                .observeOn(Schedulers.computation(), false, 1)
                 .subscribe(
                         data -> {
                             TimeUtil.sleep(1000L);

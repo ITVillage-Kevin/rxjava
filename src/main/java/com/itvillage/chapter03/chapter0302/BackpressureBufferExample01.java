@@ -33,6 +33,6 @@ public class BackpressureBufferExample01 {
                         error -> Logger.log(LogType.ON_ERROR, error)
                 );
 
-        TimeUtil.sleep(4500L);
+        TimeUtil.sleep(2800L);
     }
 }
